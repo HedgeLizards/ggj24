@@ -20,7 +20,7 @@ shape = SubResource("RectangleShape2D_jd6hx")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_j4uv3")
 
-[node name="Label" type="Label" parent="."]
+[node name="Version" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "version"

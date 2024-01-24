@@ -20,7 +20,7 @@ jobs:
 
     - name: get tag from version
       id: tag_version
-      run: echo "TAG_VERSION=$(cat version.tres)" >> $GITHUB_OUTPUT
+      run: echo "TAG_VERSION=$(cat version.txt)" >> $GITHUB_OUTPUT
 
     - name: export game
       id: export
@@ -33,8 +33,6 @@ jobs:
         relative_project_path: ./
         archive_output: true
         archive_root_folder: true
-
-    - run: find ${{ steps.export.outputs.build_directory }}
 
     - name: set index
       run: cp ${{ steps.export.outputs.build_directory }}/Web/*.html ${{ steps.export.outputs.build_directory }}/Web/index.html
