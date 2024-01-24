@@ -1,22 +1,17 @@
-# Whenever a tag push matching pattern "v*" then run the job
 on:
   push:
     branches:
       - master
 
 jobs:
-  # job id, can be anything
   export_game:
     # Always use ubuntu-latest for this action
     runs-on: ubuntu-latest
     # Add permission for release creation. Can be made narrower according to your needs
     permissions: write-all
-    # Job name, can be anything
     name: Export Game
     steps:
 
-      # Always include the checkout step so that
-      # your project is available for Godot to export
     - name: checkout
       uses: actions/checkout@v3.3.0
 
@@ -24,12 +19,11 @@ jobs:
       run: echo "v1.0.$(git rev-list --count HEAD)" > version.tres
 
     - name: get tag from version
-        id: tag_version
-        run: echo "TAG_VERSION=$(cat version.tres)" >> $GITHUB_OUTPUT
+      id: tag_version
+      run: echo "TAG_VERSION=$(cat version.tres)" >> $GITHUB_OUTPUT
 
     - name: export game
       id: export
-      # Use latest version (see releases for all versions)
       uses: firebelley/godot-export@v5.2.1
       with:
         # Defining all the required inputs
@@ -40,8 +34,17 @@ jobs:
         archive_output: true
         archive_root_folder: true
 
-      # This release action has worked well for me. However, you can most likely use any release action of your choosing.
-      # https://github.com/ncipollo/release-action
+    - run: find ${{ steps.export.outputs.build_directory }}
+
+    - name: set index
+      run: cp ${{ steps.export.outputs.build_directory }}/Web/*.html ${{ steps.export.outputs.build_directory }}/Web/index.html
+
+    - name: publish page
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ${{ steps.export.outputs.build_directory }}/Web
+
     - name: create release
       uses: ncipollo/release-action@v1.13.0
       with:
