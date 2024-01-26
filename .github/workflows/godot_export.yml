@@ -32,7 +32,6 @@ jobs:
         cache: true
         relative_project_path: ./
         archive_output: true
-        archive_root_folder: true
 
     - name: set index
       run: cp ${{ steps.export.outputs.build_directory }}/Web/*.html ${{ steps.export.outputs.build_directory }}/Web/index.html

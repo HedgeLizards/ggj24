@@ -1,27 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://do2h6dlhtci4t"]
+[gd_scene load_steps=7 format=3 uid="uid://do2h6dlhtci4t"]
 
-[ext_resource type="Script" path="res://code/player.gd" id="1_abypw"]
-[ext_resource type="Texture2D" uid="uid://c8y6s2h8tuje6" path="res://icon.svg" id="2_j4uv3"]
+[ext_resource type="PackedScene" uid="uid://cpru8qqcxur31" path="res://scenes/cat.tscn" id="1_1l0g6"]
 [ext_resource type="Script" path="res://code/version.gd" id="3_nx0xq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd6hx"]
-size = Vector2(60, 60)
+[sub_resource type="BoxShape3D" id="BoxShape3D_bucuf"]
+size = Vector3(64, 1, 64)
 
-[node name="Main" type="Node2D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pair"]
+albedo_color = Color(0.360784, 0.568627, 0.360784, 1)
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(486, 247)
-script = ExtResource("1_abypw")
+[sub_resource type="BoxMesh" id="BoxMesh_4ntsr"]
+material = SubResource("StandardMaterial3D_5pair")
+size = Vector3(64, 1, 64)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_jd6hx")
+[sub_resource type="Environment" id="Environment_n3do1"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_j4uv3")
+[node name="Main" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_1l0g6")]
+transform = Transform3D(0.925375, 0, 0.379052, 0.0662713, 0.984598, -0.161787, -0.373214, 0.174834, 0.911122, 0, 3.96403, 0)
 
 [node name="Version" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "version"
 script = ExtResource("3_nx0xq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.312335, 0.949972, 0, -0.949972, 0.312335, 0, 13.3237, 7.61123)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_bucuf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_4ntsr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n3do1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.18474, 0.982787, 0, -0.982787, -0.18474, 0, 13.0844, 0)

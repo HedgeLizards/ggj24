@@ -1,7 +1,7 @@
-extends CharacterBody2D
+extends RigidBody3D
 
 const speed = 100
 
-func _process(delta):
-	velocity = Input.get_vector("left", "right", "up", "down") * speed
-	move_and_slide()
+func _integrate_forces(state):
+	var movement = Input.get_vector("left", "right", "up", "down") * speed
+	apply_force(Vector3(movement.x, 0, movement.y))
