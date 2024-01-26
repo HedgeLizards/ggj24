@@ -32,7 +32,7 @@ text = "version"
 script = ExtResource("3_nx0xq")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.312335, 0.949972, 0, -0.949972, 0.312335, 0, 21.739, 14.1016)
+transform = Transform3D(1, 0, 0, 0, 0.312335, 0.949972, 0, -0.949972, 0.312335, 0, 34.4088, 21.7871)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
