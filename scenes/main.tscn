@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://do2h6dlhtci4t"]
+[gd_scene load_steps=8 format=3 uid="uid://do2h6dlhtci4t"]
 
 [ext_resource type="PackedScene" uid="uid://cpru8qqcxur31" path="res://scenes/cat.tscn" id="1_1l0g6"]
+[ext_resource type="PackedScene" uid="uid://cnv26p3l18vqd" path="res://scenes/wall.tscn" id="3_33o6q"]
 [ext_resource type="Script" path="res://code/version.gd" id="3_nx0xq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bucuf"]
@@ -46,3 +47,15 @@ environment = SubResource("Environment_n3do1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.18474, 0.982787, 0, -0.982787, -0.18474, 0, 13.0844, 0)
+shadow_enabled = true
+
+[node name="Wall" parent="." instance=ExtResource("3_33o6q")]
+
+[node name="Wall2" parent="." instance=ExtResource("3_33o6q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32)
+
+[node name="Wall3" parent="." instance=ExtResource("3_33o6q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 32, 0, 0)
+
+[node name="Wall4" parent="." instance=ExtResource("3_33o6q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32, 0, 0)
