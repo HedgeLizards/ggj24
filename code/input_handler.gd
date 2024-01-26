@@ -7,12 +7,11 @@ signal player_left
 enum { SELECTING, WAITING, PLAYING }
 
 var state = PLAYING
-var players = [
-	{ 'device': -2 },
-	{ 'device': -1 },
-	null,
-	null,
-]
+var players = [null, null, null, null]
+
+func _ready():
+	add_or_remove_player(-2)
+	add_or_remove_player(-1)
 
 func _input(event):
 	match state:
