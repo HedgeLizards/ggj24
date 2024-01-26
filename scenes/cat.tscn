@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c1m1lbs4oqw12" path="res://art/Cats/ggjcat.glb" id="2_kkomk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e8e0b"]
-friction = 0.0
 rough = true
 bounce = 0.8
 
@@ -14,6 +13,7 @@ radius = 2.5
 [node name="Player" type="RigidBody3D"]
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_e8e0b")
+gravity_scale = 4.0
 linear_damp = 0.2
 script = ExtResource("1_4x5th")
 
