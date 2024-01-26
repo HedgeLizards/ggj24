@@ -6,6 +6,7 @@ signal player_left
 
 enum { SELECTING, WAITING, PLAYING }
 
+var rotation: float = 0
 var state = PLAYING
 var players = [null, null, null, null]
 
@@ -71,4 +72,5 @@ func movement_vector(index):
 	
 	var keys = str(players[index].device + 2)
 	
-	return Input.get_vector('left_' + keys, 'right_' + keys, 'up_' + keys, 'down_' + keys)
+	return Input.get_vector('left_' + keys, 'right_' + keys, 'up_' + keys, 'down_' + keys).rotated(rotation)
+
