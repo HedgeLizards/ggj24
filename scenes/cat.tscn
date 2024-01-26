@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpru8qqcxur31"]
+[gd_scene load_steps=7 format=3 uid="uid://cpru8qqcxur31"]
 
 [ext_resource type="Script" path="res://code/player.gd" id="1_4x5th"]
 [ext_resource type="PackedScene" uid="uid://c1m1lbs4oqw12" path="res://art/Cats/ggjcat.glb" id="2_kkomk"]
+[ext_resource type="Script" path="res://code/playerpart.gd" id="3_rjoyy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e8e0b"]
 rough = true
@@ -10,15 +11,24 @@ bounce = 0.8
 [sub_resource type="SphereShape3D" id="SphereShape3D_l615a"]
 radius = 2.5
 
-[node name="Player" type="RigidBody3D"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_cpex8"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Body" type="RigidBody3D" parent="."]
+unique_name_in_owner = true
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_e8e0b")
 gravity_scale = 4.0
 linear_damp = 0.2
 script = ExtResource("1_4x5th")
 
-[node name="ggjcat" parent="." instance=ExtResource("2_kkomk")]
+[node name="ggjcat" parent="Body" instance=ExtResource("2_kkomk")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="Shape" type="CollisionShape3D" parent="."]
+[node name="Shape" type="CollisionShape3D" parent="Body"]
 shape = SubResource("SphereShape3D_l615a")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+mesh = SubResource("PlaneMesh_cpex8")
+script = ExtResource("3_rjoyy")
