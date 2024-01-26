@@ -1,0 +1,112 @@
+[gd_scene load_steps=11 format=3 uid="uid://cyhh22x6f5g88"]
+
+[ext_resource type="Script" path="res://code/start.gd" id="1_c8csj"]
+[ext_resource type="FontFile" uid="uid://d322quqpvquoi" path="res://fonts/KiddosyfreeRegular-GOEag.otf" id="1_jt7q2"]
+[ext_resource type="Texture2D" uid="uid://b7m1pgyxyxrkk" path="res://art/hedgelizard.png" id="1_lovnt"]
+[ext_resource type="Texture2D" uid="uid://c8y6s2h8tuje6" path="res://icon.svg" id="2_ii37h"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_wgtik"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_5aqvn"]
+events = [SubResource("InputEventKey_wgtik")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_6anw4"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_dkxca"]
+events = [SubResource("InputEventKey_6anw4")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_mdhip"]
+device = -1
+keycode = 77
+physical_keycode = 77
+key_label = 77
+unicode = 109
+
+[sub_resource type="Shortcut" id="Shortcut_1r3eh"]
+events = [SubResource("InputEventKey_mdhip")]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c8csj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_jt7q2")
+theme_override_font_sizes/font_size = 72
+shortcut = SubResource("Shortcut_5aqvn")
+text = "Play"
+flat = true
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_jt7q2")
+theme_override_font_sizes/font_size = 72
+shortcut = SubResource("Shortcut_dkxca")
+text = "Quit"
+flat = true
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.975
+anchor_right = 0.025
+anchor_bottom = 0.975
+offset_top = -128.0
+offset_right = 103.0
+grow_vertical = 0
+pivot_offset = Vector2(0, 128)
+texture = ExtResource("1_lovnt")
+expand_mode = 1
+
+[node name="Audio" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.975
+anchor_top = 0.975
+anchor_right = 0.975
+anchor_bottom = 0.975
+offset_left = -128.0
+offset_top = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(128, 128)
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut = SubResource("Shortcut_1r3eh")
+texture_normal = ExtResource("2_ii37h")
+texture_pressed = ExtResource("2_ii37h")
+stretch_mode = 0
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="toggled" from="Audio" to="." method="_on_audio_toggled"]
