@@ -24,7 +24,6 @@ func start_game():
 		player.go_to(spawn.position)
 
 func _on_lobby_player_ready(id):
-	print("player ready")
 	var ready_players: int = %Lobby.ready_players().size()
 	if ready_players > 1 && ready_players == %Players.get_children().size():
 		start_game()

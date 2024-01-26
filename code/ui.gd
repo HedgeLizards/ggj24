@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 const PREFIXES = [
 	'Agile',
@@ -38,25 +38,28 @@ const SUFFIXES = [
 	'Roller',
 ]
 
+@onready var v_box_containers = [$Player1, $Player2, $Player3, $Player4]
+
 func _ready():
 	var screen_scale = DisplayServer.screen_get_scale()
 	
-	for label in [
-		$Player1/Name,
-		$Player1/Points,
-		$Player2/Name,
-		$Player2/Points,
-		$Player3/Name,
-		$Player3/Points,
-		$Player4/Name,
-		$Player4/Points
-	]:
-		label.add_theme_font_size_override('font_size',
-			label.get_theme_font_size('font_size') * screen_scale
-		)
+	for v_box_container in v_box_containers:
+		for label in [v_box_container.get_node('Name'), v_box_container.get_node('Score')]:
+			label.add_theme_font_size_override('font_size',
+				label.get_theme_font_size('font_size') * screen_scale
+			)
+	
+	add_player(0)
+	add_player(1)
+	
+	InputHandler.player_joined.connect(add_player)
+	InputHandler.player_left.connect(remove_player)
 
-func add_player():
-	pass # PREFIXES.pick_random() + ' ' + SUFFIXES.pick_random()
+func add_player(index):
+	v_box_containers[index].get_node('Name').text = PREFIXES.pick_random() + ' ' + SUFFIXES.pick_random()
+	v_box_containers[index].get_node('Score').text = '0'
+	
+	v_box_containers[index].visible = true
 
-func remove_player():
-	pass
+func remove_player(index):
+	v_box_containers[index].visible = false

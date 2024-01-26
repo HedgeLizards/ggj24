@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://code/version.gd" id="3_nx0xq"]
 
 [sub_resource type="Environment" id="Environment_n3do1"]
+background_mode = 1
+background_color = Color(0.309804, 0.494118, 0.572549, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_73ekn"]
 size = Vector3(256, 256, 256)
@@ -30,7 +32,7 @@ text = "version"
 script = ExtResource("3_nx0xq")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 50, 20)
+transform = Transform3D(1, -5.95416e-16, 2.4663e-16, 2.4663e-16, 0.707107, 0.707107, -5.95416e-16, -0.707107, 0.707107, 2.08165e-12, 41.36, 45.61)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n3do1")

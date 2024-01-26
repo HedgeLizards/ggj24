@@ -7,7 +7,7 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e8e0b"]
 rough = true
-bounce = 0.8
+bounce = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l615a"]
 radius = 2.5
@@ -43,13 +43,15 @@ shape = SubResource("SphereShape3D_l615a")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
-amount = 50
+cast_shadow = 0
+amount = 100
+lifetime = 0.5
 mesh = SubResource("SphereMesh_koa0y")
 emission_shape = 2
-emission_sphere_radius = 1.5
+emission_sphere_radius = 1.0
 angle_min = -720.0
 angle_max = 720.0
 scale_amount_min = 0.5
-scale_amount_max = 1.5
+scale_amount_max = 1.8
 scale_amount_curve = SubResource("Curve_cxiej")
 script = ExtResource("3_rjoyy")
