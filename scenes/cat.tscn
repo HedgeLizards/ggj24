@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpru8qqcxur31"]
+[gd_scene load_steps=6 format=3 uid="uid://cpru8qqcxur31"]
 
 [ext_resource type="Script" path="res://code/player.gd" id="1_4x5th"]
+[ext_resource type="PackedScene" uid="uid://c1m1lbs4oqw12" path="res://art/Cats/ggjcat.glb" id="2_kkomk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e8e0b"]
 friction = 0.0
@@ -19,6 +20,9 @@ script = ExtResource("1_4x5th")
 
 [node name="Shape" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_l615a")
+
+[node name="ggjcat" parent="Shape" instance=ExtResource("2_kkomk")]
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_flk4f")
