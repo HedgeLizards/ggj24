@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://do2h6dlhtci4t"]
+[gd_scene load_steps=8 format=3 uid="uid://do2h6dlhtci4t"]
 
 [ext_resource type="PackedScene" uid="uid://cpru8qqcxur31" path="res://scenes/cat.tscn" id="1_1l0g6"]
 [ext_resource type="PackedScene" uid="uid://bulwrisqfjkqe" path="res://scenes/ground.tscn" id="3_43v6q"]
 [ext_resource type="Script" path="res://code/version.gd" id="3_nx0xq"]
+[ext_resource type="PackedScene" uid="uid://ct2n8xyipopbu" path="res://scenes/Disc.tscn" id="4_ks8xn"]
 
 [sub_resource type="Environment" id="Environment_n3do1"]
+background_mode = 1
+background_color = Color(0.309804, 0.494118, 0.572549, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ppli"]
 albedo_color = Color(0.207843, 0.54902, 1, 1)
@@ -18,10 +21,10 @@ subdivide_depth = 512
 [node name="Main" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_1l0g6")]
-transform = Transform3D(0.925375, 0, 0.379052, 0.0662713, 0.984598, -0.161787, -0.373214, 0.174834, 0.911122, -30, 5, 30)
+transform = Transform3D(0.925375, 0, 0.379052, 0.0662713, 0.984598, -0.161787, -0.373214, 0.174834, 0.911122, -13.4006, 29.906, 10.5058)
 
 [node name="Player2" parent="." instance=ExtResource("1_1l0g6")]
-transform = Transform3D(0.925375, 0, 0.379052, 0.0662713, 0.984598, -0.161787, -0.373214, 0.174834, 0.911122, 30, 5, -30)
+transform = Transform3D(0.925375, 0, 0.379052, 0.0662713, 0.984598, -0.161787, -0.373214, 0.174834, 0.911122, 30, 29.906, -10.212)
 player_id = 1
 
 [node name="Version" type="Label" parent="."]
@@ -31,7 +34,7 @@ text = "version"
 script = ExtResource("3_nx0xq")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 50, 20)
+transform = Transform3D(1, -5.95416e-16, 2.4663e-16, 2.4663e-16, 0.707107, 0.707107, -5.95416e-16, -0.707107, 0.707107, 2.08165e-12, 41.36, 45.61)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n3do1")
@@ -42,9 +45,11 @@ shadow_enabled = true
 
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
 mesh = SubResource("PlaneMesh_0j68v")
 
 [node name="Floor" type="Node3D" parent="."]
+visible = false
 
 [node name="Ground" parent="Floor" instance=ExtResource("3_43v6q")]
 transform = Transform3D(0.838556, -0.176835, -0.515318, 2.30492e-16, 0.945859, -0.324578, 0.544815, 0.272177, 0.793156, -19.1917, 2.62373, 18.3384)
@@ -108,3 +113,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 16)
 
 [node name="Ground21" parent="Floor" instance=ExtResource("3_43v6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -16)
+
+[node name="Disc" parent="." instance=ExtResource("4_ks8xn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.0825, 0)
