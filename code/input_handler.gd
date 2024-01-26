@@ -1,18 +1,75 @@
 extends Node
 
-var players = [null, null, null, null]
+signal state_changed
+signal player_joined
+signal player_left
 
-# func _input(event):
-	#if event is InputEventJoypadButton && event.pressed:
-		#if event.button_index == JOY_BUTTON_A:
-			#print(event.device)
-	#elif event is InputEventJoypadMotion:
-		#print(event.axis, ': ', event.axis_value)
+enum { SELECTING, WAITING, PLAYING }
 
-func movement_vector(id):
-	return Input.get_vector(
-		'left_' + str(id),
-		'right_' + str(id),
-		'up_' + str(id),
-		'down_' + str(id)
-	)
+var state = PLAYING
+var players = [
+	{ 'device': -2 },
+	{ 'device': -1 },
+	null,
+	null,
+]
+
+func _input(event):
+	match state:
+		SELECTING:
+			if event is InputEventKey && event.pressed:
+				if event.keycode == KEY_ENTER:
+					state = PLAYING
+					
+					state_changed.emit()
+				elif event.is_action('up_0'):
+					add_or_remove_player(-2)
+				elif event.is_action('up_1'):
+					add_or_remove_player(-1)
+			elif event is InputEventJoypadButton && event.pressed && event.button_index == JOY_BUTTON_A:
+				add_or_remove_player(event.device)
+		PLAYING:
+			if event is InputEventKey && event.pressed && event.keycode == KEY_ESCAPE:
+				state = SELECTING
+				
+				state_changed.emit()
+			elif event is InputEventJoypadMotion:
+				for player in players:
+					if player != null && player.device == event.device:
+						match event.axis:
+							JOY_AXIS_LEFT_X:
+								player.vector.x = event.axis_value
+							JOY_AXIS_LEFT_Y:
+								player.vector.y = event.axis_value
+						
+						break
+
+func add_or_remove_player(device):
+	var first_free_index
+	
+	for i in players.size():
+		if players[i] == null:
+			if first_free_index == null:
+				first_free_index = i
+		elif players[i].device == device:
+			players[i] = null
+			
+			player_left.emit(i)
+			
+			return
+	
+	if first_free_index != null:
+		players[first_free_index] = { 'device': device }
+		
+		if device >= 0:
+			players[first_free_index].vector = Vector2()
+		
+		player_joined.emit(first_free_index)
+
+func movement_vector(index):
+	if players[index].device >= 0:
+		return players[index].vector.limit_length()
+	
+	var keys = str(players[index].device + 2)
+	
+	return Input.get_vector('left_' + keys, 'right_' + keys, 'up_' + keys, 'down_' + keys)
