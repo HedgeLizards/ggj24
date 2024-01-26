@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://db4vtsvauc846"]
+
+[ext_resource type="PackedScene" uid="uid://bulwrisqfjkqe" path="res://scenes/ground.tscn" id="1_fnj0x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ppli"]
+albedo_color = Color(0.207843, 0.54902, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o0vqe"]
+material = SubResource("StandardMaterial3D_1ppli")
+size = Vector2(200, 200)
+subdivide_width = 512
+subdivide_depth = 512
+
+[node name="DontFall" type="Node3D"]
+
+[node name="Spawns" type="Node3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 5, 30)
+
+[node name="Node3D2" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 5, -30)
+
+[node name="Node3D3" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, 30)
+
+[node name="Node3D4" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, -30)
+
+[node name="Ground" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(0.838556, -0.176835, -0.515318, 2.30492e-16, 0.945859, -0.324578, 0.544815, 0.272177, 0.793156, -19.1917, 2.62373, 18.3384)
+
+[node name="Ground2" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+
+[node name="Ground3" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32)
+
+[node name="Ground4" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
+
+[node name="Ground5" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0)
+
+[node name="Ground6" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 16)
+
+[node name="Ground7" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 32)
+
+[node name="Ground8" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -16)
+
+[node name="Ground9" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -32)
+
+[node name="Ground10" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 32)
+
+[node name="Ground11" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 32)
+
+[node name="Ground12" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 32)
+
+[node name="Ground13" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+
+[node name="Ground14" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32)
+
+[node name="Ground15" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+
+[node name="Ground16" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0)
+
+[node name="Ground17" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -32)
+
+[node name="Ground18" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -32)
+
+[node name="Ground19" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -32)
+
+[node name="Ground20" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 16)
+
+[node name="Ground21" parent="." instance=ExtResource("1_fnj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -16)
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("PlaneMesh_o0vqe")

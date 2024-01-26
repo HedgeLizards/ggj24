@@ -1,28 +1,27 @@
 [gd_scene load_steps=7 format=3 uid="uid://do2h6dlhtci4t"]
 
 [ext_resource type="PackedScene" uid="uid://cpru8qqcxur31" path="res://scenes/cat.tscn" id="1_1l0g6"]
-[ext_resource type="PackedScene" uid="uid://bulwrisqfjkqe" path="res://scenes/ground.tscn" id="3_43v6q"]
+[ext_resource type="Script" path="res://code/main.gd" id="1_i2n6y"]
+[ext_resource type="PackedScene" uid="uid://cie6lckxrpqvu" path="res://scenes/levels/lobby.tscn" id="3_liilj"]
 [ext_resource type="Script" path="res://code/version.gd" id="3_nx0xq"]
 
 [sub_resource type="Environment" id="Environment_n3do1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ppli"]
-albedo_color = Color(0.207843, 0.54902, 1, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_0j68v"]
-material = SubResource("StandardMaterial3D_1ppli")
-size = Vector2(200, 200)
-subdivide_width = 512
-subdivide_depth = 512
+[sub_resource type="BoxShape3D" id="BoxShape3D_73ekn"]
+size = Vector3(256, 256, 256)
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_i2n6y")
 
-[node name="Player" parent="." instance=ExtResource("1_1l0g6")]
-transform = Transform3D(0.925375, 0, 0.379052, 0.0662713, 0.984598, -0.161787, -0.373214, 0.174834, 0.911122, -30, 5, 30)
+[node name="Players" type="Node3D" parent="."]
+unique_name_in_owner = true
 
-[node name="Player2" parent="." instance=ExtResource("1_1l0g6")]
+[node name="Player2" parent="Players" instance=ExtResource("1_1l0g6")]
 transform = Transform3D(0.925375, 0, 0.379052, 0.0662713, 0.984598, -0.161787, -0.373214, 0.174834, 0.911122, 30, 5, -30)
 player_id = 1
+
+[node name="Player" parent="Players" instance=ExtResource("1_1l0g6")]
+transform = Transform3D(0.925375, 0, 0.379052, 0.0662713, 0.984598, -0.161787, -0.373214, 0.174834, 0.911122, -30, 5, 30)
 
 [node name="Version" type="Label" parent="."]
 offset_right = 40.0
@@ -40,71 +39,20 @@ environment = SubResource("Environment_n3do1")
 transform = Transform3D(1, 0, 0, 0, -0.18474, 0.982787, 0, -0.982787, -0.18474, 0, 13.0844, 0)
 shadow_enabled = true
 
-[node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-mesh = SubResource("PlaneMesh_0j68v")
+[node name="Level" type="Node3D" parent="."]
+unique_name_in_owner = true
 
-[node name="Floor" type="Node3D" parent="."]
+[node name="Lobby" parent="Level" instance=ExtResource("3_liilj")]
+unique_name_in_owner = true
 
-[node name="Ground" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(0.838556, -0.176835, -0.515318, 2.30492e-16, 0.945859, -0.324578, 0.544815, 0.272177, 0.793156, -19.1917, 2.62373, 18.3384)
+[node name="InGame" type="Area3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 2
 
-[node name="Ground2" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InGame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 110, 0)
+shape = SubResource("BoxShape3D_73ekn")
 
-[node name="Ground3" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32)
-
-[node name="Ground4" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
-
-[node name="Ground5" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0)
-
-[node name="Ground6" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 16)
-
-[node name="Ground7" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 32)
-
-[node name="Ground8" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -16)
-
-[node name="Ground9" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -32)
-
-[node name="Ground10" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 32)
-
-[node name="Ground11" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 32)
-
-[node name="Ground12" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 32)
-
-[node name="Ground13" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
-
-[node name="Ground14" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32)
-
-[node name="Ground15" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
-
-[node name="Ground16" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0)
-
-[node name="Ground17" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -32)
-
-[node name="Ground18" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -32)
-
-[node name="Ground19" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -32)
-
-[node name="Ground20" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 16)
-
-[node name="Ground21" parent="Floor" instance=ExtResource("3_43v6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -16)
+[connection signal="player_ready" from="Level/Lobby" to="." method="_on_lobby_player_ready"]
+[connection signal="body_exited" from="InGame" to="." method="_on_in_game_body_exited"]

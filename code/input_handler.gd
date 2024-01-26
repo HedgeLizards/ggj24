@@ -21,10 +21,10 @@ func _input(event):
 				if event.keycode == KEY_ENTER:
 					state = PLAYING
 					
-					state_changed.emit()
-				elif event.is_action('up_0'):
+					state_changed.emit(state)
+				elif event.is_action('join_0'):
 					add_or_remove_player(-2)
-				elif event.is_action('up_1'):
+				elif event.is_action('join_1'):
 					add_or_remove_player(-1)
 			elif event is InputEventJoypadButton && event.pressed && event.button_index == JOY_BUTTON_A:
 				add_or_remove_player(event.device)
@@ -32,7 +32,7 @@ func _input(event):
 			if event is InputEventKey && event.pressed && event.keycode == KEY_ESCAPE:
 				state = SELECTING
 				
-				state_changed.emit()
+				state_changed.emit(state)
 			elif event is InputEventJoypadMotion:
 				for player in players:
 					if player != null && player.device == event.device:
