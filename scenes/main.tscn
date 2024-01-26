@@ -1,13 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://do2h6dlhtci4t"]
 
 [ext_resource type="PackedScene" uid="uid://cpru8qqcxur31" path="res://scenes/cat.tscn" id="1_1l0g6"]
-[ext_resource type="PackedScene" uid="uid://ddowqxia343xq" path="res://scenes/ground.tscn" id="3_43v6q"]
+[ext_resource type="PackedScene" uid="uid://bulwrisqfjkqe" path="res://scenes/ground.tscn" id="3_43v6q"]
 [ext_resource type="Script" path="res://code/version.gd" id="3_nx0xq"]
 
 [sub_resource type="Environment" id="Environment_n3do1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ppli"]
-albedo_color = Color(0, 0, 1, 1)
+albedo_color = Color(0.207843, 0.54902, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0j68v"]
 material = SubResource("StandardMaterial3D_1ppli")
@@ -47,6 +47,7 @@ mesh = SubResource("PlaneMesh_0j68v")
 [node name="Floor" type="Node3D" parent="."]
 
 [node name="Ground" parent="Floor" instance=ExtResource("3_43v6q")]
+transform = Transform3D(0.838556, -0.176835, -0.515318, 2.30492e-16, 0.945859, -0.324578, 0.544815, 0.272177, 0.793156, -19.1917, 2.62373, 18.3384)
 
 [node name="Ground2" parent="Floor" instance=ExtResource("3_43v6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
