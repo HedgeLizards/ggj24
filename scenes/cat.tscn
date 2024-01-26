@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpru8qqcxur31"]
+[gd_scene load_steps=8 format=3 uid="uid://cpru8qqcxur31"]
 
 [ext_resource type="Script" path="res://code/player.gd" id="1_4x5th"]
+[ext_resource type="Script" path="res://code/player_all.gd" id="1_fftc2"]
 [ext_resource type="PackedScene" uid="uid://c1m1lbs4oqw12" path="res://art/Cats/ggjcat.glb" id="2_kkomk"]
 [ext_resource type="Script" path="res://code/playerpart.gd" id="3_rjoyy"]
 
@@ -13,7 +14,8 @@ radius = 2.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cpex8"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Player" type="Node3D"]
+script = ExtResource("1_fftc2")
 
 [node name="Body" type="RigidBody3D" parent="."]
 unique_name_in_owner = true
