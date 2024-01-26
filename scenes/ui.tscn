@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://caltol35o78ta"]
+
+[ext_resource type="Script" path="res://code/ui.gd" id="1_d3axd"]
+[ext_resource type="FontFile" uid="uid://d322quqpvquoi" path="res://fonts/KiddosyfreeRegular-GOEag.otf" id="1_i4sjb"]
+[ext_resource type="FontFile" uid="uid://baicblg7y4hrc" path="res://fonts/MeowsNepilRegular-Yzvwa.ttf" id="3_krgwb"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d3axd")
+
+[node name="Player1" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 125.0
+offset_bottom = 77.0
+
+[node name="Name" type="Label" parent="Player1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i4sjb")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Points" type="Label" parent="Player1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_krgwb")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Player2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -125.0
+offset_bottom = 77.0
+grow_horizontal = 0
+
+[node name="Name" type="Label" parent="Player2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i4sjb")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Points" type="Label" parent="Player2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_krgwb")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Player3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -77.0
+offset_right = 125.0
+grow_vertical = 0
+
+[node name="Name" type="Label" parent="Player3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i4sjb")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Points" type="Label" parent="Player3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_krgwb")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Player4" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -77.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Name" type="Label" parent="Player4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i4sjb")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Points" type="Label" parent="Player4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_krgwb")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1

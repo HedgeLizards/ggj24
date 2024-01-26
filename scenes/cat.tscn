@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cpru8qqcxur31"]
 
 [ext_resource type="Script" path="res://code/player.gd" id="1_4x5th"]
+[ext_resource type="PackedScene" uid="uid://c1m1lbs4oqw12" path="res://art/Cats/ggjcat.glb" id="2_kkomk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e8e0b"]
 friction = 0.0
@@ -8,8 +9,7 @@ rough = true
 bounce = 0.8
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l615a"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_flk4f"]
+radius = 2.5
 
 [node name="Player" type="RigidBody3D"]
 mass = 2.0
@@ -17,8 +17,8 @@ physics_material_override = SubResource("PhysicsMaterial_e8e0b")
 linear_damp = 0.2
 script = ExtResource("1_4x5th")
 
+[node name="ggjcat" parent="." instance=ExtResource("2_kkomk")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="Shape" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_l615a")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_flk4f")

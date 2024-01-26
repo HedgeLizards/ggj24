@@ -17,7 +17,7 @@ config/icon="res://art/hedgelizard.png"
 
 [autoload]
 
-PlayerInput="*res://code/player_input.gd"
+InputHandler="*res://code/input_handler.gd"
 
 [input]
 
