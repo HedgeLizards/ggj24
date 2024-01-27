@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cyhh22x6f5g88"]
+[gd_scene load_steps=13 format=3 uid="uid://cyhh22x6f5g88"]
 
 [ext_resource type="Script" path="res://code/start.gd" id="1_c8csj"]
 [ext_resource type="FontFile" uid="uid://d322quqpvquoi" path="res://fonts/KiddosyfreeRegular-GOEag.otf" id="1_jt7q2"]
 [ext_resource type="Texture2D" uid="uid://b7m1pgyxyxrkk" path="res://art/hedgelizard.png" id="1_lovnt"]
+[ext_resource type="FontFile" uid="uid://baicblg7y4hrc" path="res://fonts/MeowsNepilRegular-Yzvwa.ttf" id="2_2383r"]
 [ext_resource type="Texture2D" uid="uid://c8y6s2h8tuje6" path="res://icon.svg" id="2_ii37h"]
 [ext_resource type="Script" path="res://code/version.gd" id="4_18bna"]
 
@@ -54,7 +55,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Play" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Left" type="Label" parent="VBoxContainer/Play"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2383r")
+theme_override_font_sizes/font_size = 73
+text = ">"
+
+[node name="Button" type="Button" parent="VBoxContainer/Play"]
 layout_mode = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -64,7 +77,26 @@ shortcut = SubResource("Shortcut_5aqvn")
 text = "Play"
 flat = true
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Right" type="Label" parent="VBoxContainer/Play"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2383r")
+theme_override_font_sizes/font_size = 72
+text = "<"
+
+[node name="Quit" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Left" type="Label" parent="VBoxContainer/Quit"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2383r")
+theme_override_font_sizes/font_size = 72
+text = ">"
+
+[node name="Button" type="Button" parent="VBoxContainer/Quit"]
 layout_mode = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -73,6 +105,13 @@ theme_override_font_sizes/font_size = 72
 shortcut = SubResource("Shortcut_dkxca")
 text = "Quit"
 flat = true
+
+[node name="Right" type="Label" parent="VBoxContainer/Quit"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2383r")
+theme_override_font_sizes/font_size = 72
+text = "<"
 
 [node name="Logo" type="TextureRect" parent="."]
 layout_mode = 1
@@ -123,6 +162,10 @@ texture_normal = ExtResource("2_ii37h")
 texture_pressed = ExtResource("2_ii37h")
 stretch_mode = 0
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Play/Button" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Play/Button" to="." method="_on_play_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Play/Button" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit/Button" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Quit/Button" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Quit/Button" to="." method="_on_quit_pressed"]
 [connection signal="toggled" from="Audio" to="." method="_on_audio_toggled"]
