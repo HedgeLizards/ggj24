@@ -10,8 +10,11 @@ func _ready():
 			label.get_theme_font_size('font_size') * screen_scale
 		)
 	
+	$Notice.add_theme_font_size_override('normal_font_size',
+		$Notice.get_theme_font_size('normal_font_size') * screen_scale
+	)
+	
 	InputHandler.player_joined.connect(add_player)
-	#InputHandler.player_left.connect(remove_player)
 
 func add_player(index):
 	players[index].visible = true
@@ -33,10 +36,14 @@ func update_player_score(index, score):
 	tween.tween_property(label, 'scale', Vector2.ONE * 1.5, 0.2)
 	tween.tween_property(label, 'scale', Vector2.ONE, 0.2)
 
-func show_notice(notice):
+func show_notice(notice, seconds = null):
 	$Notice.text = notice
+	$Notice.modulate.a = 1
 	
-	create_tween().set_trans(Tween.TRANS_SINE).tween_property($Notice, 'modulate:a', 1, 0.2)
+	if seconds != null:
+		$NoticeTimer.start(seconds)
+	elif !$NoticeTimer.is_stopped():
+		$NoticeTimer.stop()
 
 func hide_notice():
 	create_tween().set_trans(Tween.TRANS_SINE).tween_property($Notice, 'modulate:a', 0, 0.2)
