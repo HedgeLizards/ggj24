@@ -4,7 +4,7 @@ extends Node3D
 enum State { LOBBY, PLAYING }
 
 var state: State = State.LOBBY
-var dry_players
+var dry_players = 0
 
 var levels = [
 	preload("res://scenes/levels/dont_fall.tscn"),
