@@ -66,3 +66,12 @@ func movement_vector(index):
 	var keys = str(players[index].device + 2)
 	
 	return Input.get_vector('left_' + keys, 'right_' + keys, 'up_' + keys, 'down_' + keys).rotated(rotation)
+
+func jump_pressed(index):
+	if !can_move_players || players[index] == null:
+		return false
+	var device = players[index].device
+	if device < 0:
+		return Input.is_action_pressed("jump_" + str(players[index].device + 2))
+	else:
+		return Input.is_joy_button_pressed(device, JOY_BUTTON_A)
