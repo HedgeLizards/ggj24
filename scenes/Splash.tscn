@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://da0xobyjc316q"]
+[gd_scene load_steps=7 format=3 uid="uid://da0xobyjc316q"]
 
-[ext_resource type="Material" uid="uid://jkubgtbm47jo" path="res://art/Textures/water.tres" id="1_hjjqq"]
+[ext_resource type="Script" path="res://code/splash.gd" id="1_ancs0"]
+[ext_resource type="Material" uid="uid://jkubgtbm47jo" path="res://art/Textures/Levelcolors/water.tres" id="1_hjjqq"]
 
 [sub_resource type="Curve" id="Curve_tk310"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.488), 0.0, 0.0, 0, 0]
@@ -33,14 +34,19 @@ scale_curve = SubResource("CurveTexture_3rxrl")
 
 [sub_resource type="TubeTrailMesh" id="TubeTrailMesh_m3tyu"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Splash" type="Node3D"]
+script = ExtResource("1_ancs0")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 material_override = ExtResource("1_hjjqq")
+emitting = false
 amount = 50
 lifetime = 2.0
+one_shot = true
 speed_scale = 3.0
 explosiveness = 0.9
 trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_yvag2")
 draw_pass_1 = SubResource("TubeTrailMesh_m3tyu")
+
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

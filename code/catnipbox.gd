@@ -11,7 +11,6 @@ func _physics_process(delta):
 
 
 func destroy():
-	print("destroying box")
 	var p = particles.instantiate()
 	get_parent().add_child(p)
 	p.global_position = global_position

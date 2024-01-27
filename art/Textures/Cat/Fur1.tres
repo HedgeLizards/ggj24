@@ -3,5 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dymkex35iswft" path="res://art/Textures/Fur UVs/UV1.png" id="1_ivpjp"]
 
 [resource]
-shading_mode = 0
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_ivpjp")
+disable_receive_shadows = true

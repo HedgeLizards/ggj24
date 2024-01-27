@@ -8,6 +8,7 @@ var countdown
 
 var Cat = preload("res://scenes/cat.tscn")
 var Lobby = preload("res://scenes/levels/lobby.tscn")
+var Splash = preload("res://scenes/Splash.tscn")
 
 var levels = [
 	preload("res://scenes/levels/dont_fall.tscn"),
@@ -62,6 +63,13 @@ func _on_player_joined(id):
 func _on_in_game_body_exited(body):
 	if state == State.LOBBY:
 		return
+	
+	var splash = Splash.instantiate()
+	
+	add_child(splash)
+	
+	splash.global_position = body.global_position
+	splash.global_position.y = 0
 	
 	body.get_parent().dry = false
 	
@@ -164,7 +172,7 @@ func update_join_notice():
 	
 	if player_left_available:
 		notice += ' Space'
-		
+	
 	if player_left_available || player_right_available:
 		notice += ' or'
 	

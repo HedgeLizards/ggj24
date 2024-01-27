@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://bulwrisqfjkqe"]
 
-[ext_resource type="Material" uid="uid://dganwa628yu2f" path="res://art/Textures/ground.tres" id="1_sjyhg"]
+[ext_resource type="Material" uid="uid://b4rkfiuoff2m5" path="res://art/Textures/Levelcolors/ground.tres" id="1_xuga0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bucuf"]
 size = Vector3(16, 8, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4ntsr"]
-material = ExtResource("1_sjyhg")
+material = ExtResource("1_xuga0")
 size = Vector3(16, 8, 16)
 
 [node name="Ground" type="StaticBody3D"]
