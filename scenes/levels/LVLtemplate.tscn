@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl16gocbkeqr0"]
+
+[ext_resource type="Script" path="res://code/disco.gd" id="1_lm1rw"]
+[ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="3_rbiwy"]
+
+[node name="Disco" type="Node3D"]
+script = ExtResource("1_lm1rw")
+
+[node name="Spawns" type="Node3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, 0)
+
+[node name="Node3D2" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 5, 0)
+
+[node name="Node3D3" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -30)
+
+[node name="Node3D4" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 30)
+
+[node name="Water" parent="." instance=ExtResource("3_rbiwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

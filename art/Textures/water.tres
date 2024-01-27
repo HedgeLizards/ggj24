@@ -1,5 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://jkubgtbm47jo"]
 
 [resource]
+cull_mode = 2
 albedo_color = Color(0.207843, 0.54902, 1, 1)
 use_particle_trails = true
