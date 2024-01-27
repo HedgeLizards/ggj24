@@ -12,13 +12,14 @@
 
 [sub_resource type="Environment" id="Environment_n3do1"]
 background_mode = 1
-background_color = Color(0.247059, 0.643137, 0.666667, 1)
+background_color = Color(0.368627, 0.615686, 0.639216, 1)
 ambient_light_color = Color(0.760784, 0.760784, 0.760784, 1)
 ambient_light_energy = 0.0
 ssao_enabled = true
-ssao_radius = 1.17
+ssao_radius = 2.26
 ssao_intensity = 6.88
 ssil_enabled = true
+ssil_radius = 7.52
 glow_enabled = true
 glow_normalized = true
 glow_intensity = 2.19
@@ -28,7 +29,7 @@ volumetric_fog_density = 1.0
 volumetric_fog_length = 10.0
 adjustment_enabled = true
 adjustment_contrast = 1.2
-adjustment_saturation = 1.17
+adjustment_saturation = 1.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_73ekn"]
 size = Vector3(256, 256, 256)
