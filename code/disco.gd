@@ -7,4 +7,4 @@ func enable():
 	$Disc/Ramp.set_physics_process(true)
 
 func is_rotating():
-	return true
+	return 

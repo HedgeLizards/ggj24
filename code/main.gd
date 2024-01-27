@@ -24,6 +24,7 @@ func open_level(level):
 		%Level.remove_child(child)
 		child.queue_free()
 	%Level.add_child(level)
+	%Level.time = 0
 	var spawns = level.get_node("Spawns").get_children()
 	spawns.shuffle()
 	for player in %Players.get_children():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://do2h6dlhtci4t"]
+[gd_scene load_steps=12 format=3 uid="uid://do2h6dlhtci4t"]
 
 [ext_resource type="Script" path="res://code/main.gd" id="1_i2n6y"]
 [ext_resource type="PackedScene" uid="uid://caltol35o78ta" path="res://scenes/ui.tscn" id="2_jwe8d"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cie6lckxrpqvu" path="res://scenes/levels/lobby.tscn" id="3_liilj"]
 [ext_resource type="Script" path="res://code/music_manager.gd" id="4_7lqkf"]
 [ext_resource type="AudioStream" uid="uid://brpdljwiumjg6" path="res://audio/MUS_Lobby.ogg" id="4_bna3p"]
+[ext_resource type="Script" path="res://code/level.gd" id="4_se4ds"]
 [ext_resource type="AudioStream" uid="uid://bsxeoj87ymnbx" path="res://audio/MUS_Transition_1.ogg" id="6_eoo0v"]
 [ext_resource type="AudioStream" uid="uid://wd3fixolg18n" path="res://audio/MUS_Game_Time_Loop.ogg" id="7_hppy8"]
 
@@ -40,6 +41,7 @@ shadow_enabled = true
 
 [node name="Level" type="Node3D" parent="."]
 unique_name_in_owner = true
+script = ExtResource("4_se4ds")
 
 [node name="Lobby" parent="Level" instance=ExtResource("3_liilj")]
 
