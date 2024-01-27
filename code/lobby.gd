@@ -13,3 +13,6 @@ func _on_ready_area_body_entered(body):
 
 func _on_leave_area_body_entered(body):
 	player_leave.emit(body.get_parent())
+
+func is_lobby():
+	return true
