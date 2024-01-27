@@ -72,7 +72,7 @@ func _on_in_game_body_exited(body):
 			$UI.update_player_score(player.player_id, player.score)
 	
 	if dry_players <= 1:
-		start_game()
+		start_game.call_deferred()
 
 func _physics_process(delta):
 	%CameraBase.rotation.y += delta / 10
