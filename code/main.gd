@@ -78,9 +78,6 @@ func _on_in_game_body_exited(body):
 		
 		$EndTimer.start()
 
-func _physics_process(delta):
-	%CameraBase.rotation.y += delta / 10
-	InputHandler.rotation = -%CameraBase.rotation.y
 
 
 func _on_lobby_player_leave(player):

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://do2h6dlhtci4t"]
+[gd_scene load_steps=11 format=3 uid="uid://do2h6dlhtci4t"]
 
 [ext_resource type="Script" path="res://code/main.gd" id="1_i2n6y"]
 [ext_resource type="PackedScene" uid="uid://caltol35o78ta" path="res://scenes/ui.tscn" id="2_jwe8d"]
+[ext_resource type="Script" path="res://code/camera_base.gd" id="3_g1m57"]
 [ext_resource type="PackedScene" uid="uid://cie6lckxrpqvu" path="res://scenes/levels/lobby.tscn" id="3_liilj"]
 [ext_resource type="Script" path="res://code/music_manager.gd" id="4_7lqkf"]
 [ext_resource type="AudioStream" uid="uid://brpdljwiumjg6" path="res://audio/MUS_Lobby.ogg" id="4_bna3p"]
@@ -25,6 +26,7 @@ unique_name_in_owner = true
 
 [node name="CameraBase" type="Node3D" parent="."]
 unique_name_in_owner = true
+script = ExtResource("3_g1m57")
 
 [node name="Camera3D" type="Camera3D" parent="CameraBase"]
 transform = Transform3D(1, -5.95416e-16, 2.46629e-16, 2.4663e-16, 0.707107, 0.707107, -5.95416e-16, -0.707107, 0.707107, 0, 35, 50)
@@ -40,7 +42,6 @@ shadow_enabled = true
 unique_name_in_owner = true
 
 [node name="Lobby" parent="Level" instance=ExtResource("3_liilj")]
-unique_name_in_owner = true
 
 [node name="InGame" type="Area3D" parent="."]
 unique_name_in_owner = true
