@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgm6a1a6y5gox"]
+
+[ext_resource type="Material" uid="uid://csf5w5n6wn7f" path="res://art/Textures/Levelcolors/wall.tres" id="1_ax570"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ldcn2"]
+friction = 2.0
+bounce = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_rfhmd"]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qn5gy"]
+radius = 10.0
+
+[node name="Ball" type="RigidBody3D"]
+mass = 4.0
+physics_material_override = SubResource("PhysicsMaterial_ldcn2")
+gravity_scale = 5.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_ax570")
+mesh = SubResource("SphereMesh_rfhmd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_qn5gy")
