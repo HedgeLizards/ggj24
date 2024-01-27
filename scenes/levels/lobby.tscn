@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://cie6lckxrpqvu"]
+
+[ext_resource type="PackedScene" uid="uid://bulwrisqfjkqe" path="res://scenes/ground.tscn" id="1_fuhqo"]
+[ext_resource type="Texture2D" uid="uid://c6raogvu5t0yb" path="res://art/Textures/ready.png" id="1_nv03h"]
+[ext_resource type="Script" path="res://code/lobby.gd" id="1_uqge3"]
+[ext_resource type="PackedScene" uid="uid://cnv26p3l18vqd" path="res://scenes/wall.tscn" id="2_smbfl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fy3gt"]
+size = Vector3(32, 2, 32)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgh0g"]
+albedo_texture = ExtResource("1_nv03h")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7pwrj"]
+material = SubResource("StandardMaterial3D_qgh0g")
+size = Vector2(32, 32)
+orientation = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b26vh"]
+size = Vector3(32, 16, 32)
+
+[node name="Lobby" type="Node3D"]
+script = ExtResource("1_uqge3")
+
+[node name="Spawns" type="Node3D" parent="."]
+
+[node name="Ready" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ready"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ready/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_fy3gt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ready/StaticBody3D"]
+mesh = SubResource("QuadMesh_7pwrj")
+
+[node name="ReadyArea" type="Area3D" parent="Ready"]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ready/ReadyArea"]
+shape = SubResource("BoxShape3D_b26vh")
+
+[node name="Ground" parent="." instance=ExtResource("1_fuhqo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32, 0, 0)
+
+[node name="Wall" parent="." instance=ExtResource("2_smbfl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 48)
+
+[node name="Wall2" parent="." instance=ExtResource("2_smbfl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -48)
+
+[node name="Wall3" parent="." instance=ExtResource("2_smbfl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -48, 0, 0)
+
+[node name="Wall4" parent="." instance=ExtResource("2_smbfl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 48, 0, 0)
+
+[node name="Ground2" parent="." instance=ExtResource("1_fuhqo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32, 0, -32)
+
+[node name="Ground3" parent="." instance=ExtResource("1_fuhqo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 32, 0, 0)
+
+[node name="Ground4" parent="." instance=ExtResource("1_fuhqo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 32, 0, 32)
+
+[node name="Ground5" parent="." instance=ExtResource("1_fuhqo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 32)
+
+[node name="Ground6" parent="." instance=ExtResource("1_fuhqo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 32, 0, -32)
+
+[node name="Ground7" parent="." instance=ExtResource("1_fuhqo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -32)
+
+[node name="Ground8" parent="." instance=ExtResource("1_fuhqo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32, 0, 32)
+
+[connection signal="body_entered" from="Ready/ReadyArea" to="." method="_on_ready_area_body_entered"]

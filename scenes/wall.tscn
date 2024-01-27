@@ -1,17 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnv26p3l18vqd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yv6ym"]
-size = Vector3(64, 32, 4)
+size = Vector3(96, 256, 16)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6i87"]
 albedo_color = Color(0.690196, 0.309804, 0.309804, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xn01f"]
 material = SubResource("StandardMaterial3D_m6i87")
-size = Vector3(64, 32, 4)
+size = Vector3(96, 32, 16)
 
 [node name="Wall" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_yv6ym")

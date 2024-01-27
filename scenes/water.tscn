@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwksqbyxtxf10"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ppli"]
+albedo_color = Color(0.207843, 0.54902, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o0vqe"]
+material = SubResource("StandardMaterial3D_1ppli")
+size = Vector2(1024, 1024)
+subdivide_width = 512
+subdivide_depth = 512
+
+[node name="Water" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("PlaneMesh_o0vqe")
