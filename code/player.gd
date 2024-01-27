@@ -3,7 +3,6 @@ extends RigidBody3D
 const speed: float = 100
 const max_speed: float = 100
 
-
 func _integrate_forces(state):
 	var current_speed := Vector2(linear_velocity.x, linear_velocity.z)
 	var movement: Vector2 = InputHandler.movement_vector($"..".player_id) * speed

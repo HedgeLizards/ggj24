@@ -63,3 +63,9 @@ func add_player(index):
 
 func remove_player(index):
 	v_box_containers[index].visible = false
+
+func update_player_dry(index, dry):
+	pass
+
+func update_player_score(index, score):
+	v_box_containers[index].get_node('Score').text = str(score)

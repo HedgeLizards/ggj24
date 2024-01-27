@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://do2h6dlhtci4t"]
+[gd_scene load_steps=8 format=3 uid="uid://do2h6dlhtci4t"]
 
 [ext_resource type="PackedScene" uid="uid://cpru8qqcxur31" path="res://scenes/cat.tscn" id="1_1l0g6"]
 [ext_resource type="Script" path="res://code/main.gd" id="1_i2n6y"]
+[ext_resource type="PackedScene" uid="uid://caltol35o78ta" path="res://scenes/ui.tscn" id="2_jwe8d"]
 [ext_resource type="PackedScene" uid="uid://cie6lckxrpqvu" path="res://scenes/levels/lobby.tscn" id="3_liilj"]
 [ext_resource type="Script" path="res://code/version.gd" id="3_nx0xq"]
 
@@ -14,6 +15,8 @@ size = Vector3(256, 256, 256)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_i2n6y")
+
+[node name="UI" parent="." instance=ExtResource("2_jwe8d")]
 
 [node name="Players" type="Node3D" parent="."]
 unique_name_in_owner = true

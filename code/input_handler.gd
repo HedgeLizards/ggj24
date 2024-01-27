@@ -68,7 +68,7 @@ func add_or_remove_player(device):
 
 func movement_vector(index):
 	if players[index].device >= 0:
-		return players[index].vector.limit_length()
+		return players[index].vector.limit_length().rotated(rotation)
 	
 	var keys = str(players[index].device + 2)
 	
