@@ -14,7 +14,8 @@ var levels = [
 	preload("res://scenes/levels/dont_fall.tscn"),
 	preload("res://scenes/levels/disco.tscn"),
 	preload("res://scenes/levels/pushover.tscn"),
-	preload("res://scenes/levels/cataloguenip.tscn")
+	preload("res://scenes/levels/cataloguenip.tscn"),
+	#preload("res://scenes/levels/theball.tscn")
 ]
 
 func _ready():
