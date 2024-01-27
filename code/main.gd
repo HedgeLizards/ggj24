@@ -66,10 +66,9 @@ func _on_in_game_body_exited(body):
 	
 	var splash = Splash.instantiate()
 	
-	add_child(splash)
+	splash.spawn_at = Vector3(body.global_position.x, 0, body.global_position.z)
 	
-	splash.global_position = body.global_position
-	splash.global_position.y = 0
+	add_child.call_deferred(splash)
 	
 	body.get_parent().dry = false
 	

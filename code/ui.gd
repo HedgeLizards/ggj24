@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const COLORS = [Color.ORANGE, Color.BLACK, Color.GRAY, Color.WHITE]
+
 @onready var players = [$Player1, $Player2, $Player3, $Player4]
 
 func _ready():
@@ -17,6 +19,9 @@ func _ready():
 	InputHandler.player_joined.connect(add_player)
 
 func add_player(index):
+	players[index].get_node('Name').add_theme_color_override('font_outline_color', COLORS[index])
+	players[index].get_node('Score').add_theme_color_override('font_outline_color', COLORS[index])
+	
 	players[index].visible = true
 
 func remove_player(index):

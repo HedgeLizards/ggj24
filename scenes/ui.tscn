@@ -18,13 +18,17 @@ anchor_bottom = 0.02
 script = ExtResource("2_4saye")
 
 [node name="Name" type="Label" parent="Player1"]
+show_behind_parent = true
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_i4sjb")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 
 [node name="Score" type="Label" parent="Player1"]
+show_behind_parent = true
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_krgwb")
 theme_override_font_sizes/font_size = 72
 horizontal_alignment = 1
@@ -40,13 +44,17 @@ grow_horizontal = 0
 script = ExtResource("2_4saye")
 
 [node name="Name" type="Label" parent="Player2"]
+show_behind_parent = true
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_i4sjb")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 
 [node name="Score" type="Label" parent="Player2"]
+show_behind_parent = true
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_krgwb")
 theme_override_font_sizes/font_size = 72
 horizontal_alignment = 1
@@ -62,13 +70,17 @@ grow_vertical = 0
 script = ExtResource("2_4saye")
 
 [node name="Name" type="Label" parent="Player3"]
+show_behind_parent = true
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_i4sjb")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 
 [node name="Score" type="Label" parent="Player3"]
+show_behind_parent = true
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_krgwb")
 theme_override_font_sizes/font_size = 72
 horizontal_alignment = 1
@@ -85,13 +97,17 @@ grow_vertical = 0
 script = ExtResource("2_4saye")
 
 [node name="Name" type="Label" parent="Player4"]
+show_behind_parent = true
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_i4sjb")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 
 [node name="Score" type="Label" parent="Player4"]
+show_behind_parent = true
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_krgwb")
 theme_override_font_sizes/font_size = 72
 horizontal_alignment = 1
