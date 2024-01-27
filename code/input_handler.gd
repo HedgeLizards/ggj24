@@ -80,3 +80,8 @@ func jump_pressed(index):
 		return Input.is_action_pressed("jump_" + str(device + 2))
 	else:
 		return Input.is_joy_button_pressed(device, JOY_BUTTON_A)
+
+func vibrate(index):
+	var device = players[index].device
+	if device >= 0:
+		Input.start_joy_vibration(device, 1, 0.3, 0.15)
