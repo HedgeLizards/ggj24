@@ -8,8 +8,8 @@ enum { SELECTING, WAITING, PLAYING }
 var rotation: float = 0
 var players = [null, null, null, null]
 
-var can_add_players = true
-var can_move_players = true
+var can_add_players = false
+var can_move_players = false
 
 func _input(event):
 	if event is InputEventKey && event.pressed:
@@ -72,6 +72,6 @@ func jump_pressed(index):
 		return false
 	var device = players[index].device
 	if device < 0:
-		return Input.is_action_pressed("jump_" + str(players[index].device + 2))
+		return Input.is_action_pressed("jump_" + str(device + 2))
 	else:
 		return Input.is_joy_button_pressed(device, JOY_BUTTON_A)

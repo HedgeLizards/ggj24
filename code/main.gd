@@ -55,6 +55,9 @@ func _on_player_joined(id):
 	update_join_notice()
 
 func _on_in_game_body_exited(body):
+	if state == State.LOBBY:
+		return
+	
 	body.get_parent().dry = false
 	
 	$UI.update_player_dry(body.get_parent().player_id, false)
@@ -97,9 +100,16 @@ func start_lobby():
 	update_join_notice()
 
 func _stop_round():
-	$StartTimer.stop()
-	$EndTimer.stop()
-	start_lobby.call_deferred()
+	if state == State.LOBBY:
+		for player in %Players.get_children():
+			_on_lobby_player_leave(player)
+		InputHandler.can_add_players = false
+		InputHandler.can_move_players = false
+		get_tree().change_scene_to_file('res://scenes/start.tscn')
+	else:
+		$StartTimer.stop()
+		$EndTimer.stop()
+		start_lobby.call_deferred()
 
 func _on_start_timer_timeout():
 	InputHandler.can_move_players = true
