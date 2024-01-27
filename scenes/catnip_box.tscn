@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi6pijctvejci"]
+
+[ext_resource type="Script" path="res://code/catnipbox.gd" id="1_q55yx"]
+[ext_resource type="Texture2D" uid="uid://qnv1k4siy0ac" path="res://art/Powerups/sprite_catnip.png" id="2_t67nh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mfg03"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l00a1"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ai2xm"]
+albedo_texture = ExtResource("2_t67nh")
+
+[sub_resource type="BoxMesh" id="BoxMesh_linu2"]
+material = SubResource("StandardMaterial3D_ai2xm")
+size = Vector3(4, 4, 4)
+subdivide_width = 2
+subdivide_height = 2
+
+[node name="CatnipBox" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_mfg03")
+gravity_scale = 5.0
+max_contacts_reported = 4
+contact_monitor = true
+script = ExtResource("1_q55yx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_l00a1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_linu2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

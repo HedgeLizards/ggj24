@@ -10,8 +10,9 @@ var Cat = preload("res://scenes/cat.tscn")
 var Lobby = preload("res://scenes/levels/lobby.tscn")
 
 var levels = [
-	preload("res://scenes/levels/dont_fall.tscn"),
-	preload("res://scenes/levels/disco.tscn")
+	#preload("res://scenes/levels/dont_fall.tscn"),
+	#preload("res://scenes/levels/disco.tscn"),
+	preload("res://scenes/levels/cataloguenip.tscn")
 ]
 
 func _ready():
@@ -24,7 +25,7 @@ func open_level(level):
 		%Level.remove_child(child)
 		child.queue_free()
 	%Level.add_child(level)
-	%Level.time = 0
+	%Level.reset()
 	var spawns = level.get_node("Spawns").get_children()
 	spawns.shuffle()
 	for player in %Players.get_children():
