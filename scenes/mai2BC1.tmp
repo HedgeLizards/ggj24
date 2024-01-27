@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://code/music_manager.gd" id="4_7lqkf"]
 [ext_resource type="AudioStream" uid="uid://brpdljwiumjg6" path="res://audio/MUS_Lobby.ogg" id="4_bna3p"]
 [ext_resource type="AudioStream" uid="uid://bsxeoj87ymnbx" path="res://audio/MUS_Transition_1.ogg" id="6_eoo0v"]
-[ext_resource type="AudioStream" uid="uid://wd3fixolg18n" path="res://audio/MUS_Game_Time_Loop.ogg" id="7_hppy8"]
+[ext_resource type="AudioStream" uid="uid://bsec5ca5qdgxu" path="res://audio/MUS_Game_Time_Loop.ogg" id="7_hppy8"]
 
 [sub_resource type="Environment" id="Environment_n3do1"]
 background_mode = 1
@@ -27,7 +27,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="CameraBase"]
-transform = Transform3D(1, -5.95416e-16, 2.46629e-16, 2.4663e-16, 0.707107, 0.707107, -5.95416e-16, -0.707107, 0.707107, 0, 35, 50)
+transform = Transform3D(1, -5.95416e-16, 2.46629e-16, 2.4663e-16, 0.707107, 0.707107, -5.95416e-16, -0.707107, 0.707107, 2.08165e-12, 41.36, 45.61)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n3do1")
@@ -46,10 +46,9 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
-monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InGame"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 128, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 110, 0)
 shape = SubResource("BoxShape3D_73ekn")
 
 [node name="StartTimer" type="Timer" parent="."]
@@ -77,5 +76,3 @@ stream = ExtResource("7_hppy8")
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]
 [connection signal="finished" from="MusicManager/MUS_Lobby" to="MusicManager" method="_on_mus_lobby_finished"]
-[connection signal="finished" from="MusicManager/MUS_Transition_1" to="MusicManager" method="_on_mus_transition_1_finished"]
-[connection signal="finished" from="MusicManager/MUS_Game_Time_Loop" to="MusicManager" method="_on_mus_game_time_loop_finished"]

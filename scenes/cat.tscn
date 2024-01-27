@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://code/player.gd" id="1_4x5th"]
 [ext_resource type="Script" path="res://code/player_all.gd" id="1_fftc2"]
-[ext_resource type="PackedScene" uid="uid://c1m1lbs4oqw12" path="res://art/Cats/ggjcat.glb" id="2_kkomk"]
+[ext_resource type="PackedScene" uid="uid://b0nesfiqea24v" path="res://scenes/Catmodel.tscn" id="3_seese"]
 [ext_resource type="Script" path="res://code/player_base.gd" id="4_0o1io"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e8e0b"]
@@ -32,7 +32,7 @@ script = ExtResource("1_fftc2")
 unique_name_in_owner = true
 collision_layer = 3
 collision_mask = 3
-mass = 2.0
+mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_e8e0b")
 gravity_scale = 4.0
 max_contacts_reported = 4
@@ -40,8 +40,8 @@ contact_monitor = true
 linear_damp = 0.2
 script = ExtResource("1_4x5th")
 
-[node name="ggjcat" parent="Body" instance=ExtResource("2_kkomk")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+[node name="Catmodel" parent="Body" instance=ExtResource("3_seese")]
+transform = Transform3D(1.1788, 0, 0, 0, 1.1788, 0, 0, 0, 1.1788, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="Shape" type="CollisionShape3D" parent="Body"]
 shape = SubResource("SphereShape3D_l615a")

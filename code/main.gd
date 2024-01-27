@@ -51,7 +51,8 @@ func _on_player_joined(id):
 	var cat = Cat.instantiate()
 	cat.player_id = id
 	%Players.add_child(cat)
-	cat.go_to(Vector3(0, 5, 0))
+	#$Level/Lobby/Spawns.get_children().pick_random()
+	cat.go_to($Level/Lobby/Spawns.get_children().pick_random().position)
 	update_join_notice()
 
 func _on_in_game_body_exited(body):
