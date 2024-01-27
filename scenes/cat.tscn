@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://code/player.gd" id="1_4x5th"]
 [ext_resource type="Script" path="res://code/player_all.gd" id="1_fftc2"]
+[ext_resource type="PackedScene" uid="uid://b0nesfiqea24v" path="res://scenes/cat_models/player1.tscn" id="3_mmw68"]
 [ext_resource type="Script" path="res://code/player_base.gd" id="4_0o1io"]
 [ext_resource type="Material" uid="uid://2488sotnejbk" path="res://art/Particles/cloudtrail.tres" id="4_oiamh"]
-[ext_resource type="PackedScene" uid="uid://b0nesfiqea24v" path="res://scenes/Catmodel.tscn" id="4_sevjg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e8e0b"]
 rough = true
@@ -42,8 +42,9 @@ script = ExtResource("1_4x5th")
 [node name="Shape" type="CollisionShape3D" parent="Body"]
 shape = SubResource("SphereShape3D_l615a")
 
-[node name="ggjcat" parent="Body" instance=ExtResource("4_sevjg")]
-transform = Transform3D(1.17131, 0, 0, 0, 1.17131, 0, 0, 0, 1.17131, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+[node name="Catmodel" parent="Body" instance=ExtResource("3_mmw68")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+visible = false
 
 [node name="Base" type="Node3D" parent="."]
 script = ExtResource("4_0o1io")
@@ -56,7 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 shape = SubResource("BoxShape3D_pgwul")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -5.08218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 amount = 30
 lifetime = 0.8
 randomness = 0.5
