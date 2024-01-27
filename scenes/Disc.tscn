@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://ct2n8xyipopbu"]
+[gd_scene load_steps=13 format=3 uid="uid://ct2n8xyipopbu"]
 
-[ext_resource type="Material" uid="uid://dganwa628yu2f" path="res://art/Textures/ground.tres" id="1_dpwwe"]
+[ext_resource type="Material" uid="uid://csf5w5n6wn7f" path="res://art/Textures/Levelcolors/wall.tres" id="2_61qte"]
 [ext_resource type="Script" path="res://code/Ramp.gd" id="2_v17hg"]
+[ext_resource type="Material" uid="uid://df7bxhyrup31q" path="res://art/Textures/Levelcolors/wood.tres" id="3_m3y8y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ysau"]
+albedo_color = Color(0.513115, 0.533138, 0.216995, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ewn05"]
-material = ExtResource("1_dpwwe")
+material = SubResource("StandardMaterial3D_8ysau")
 top_radius = 40.0
 bottom_radius = 40.0
 height = 8.0
@@ -52,6 +56,7 @@ script = ExtResource("2_v17hg")
 
 [node name="ObstaceRamp" type="MeshInstance3D" parent="Ramp"]
 transform = Transform3D(1, 0, 1.01821e-08, 0, 1, 0, 1.01821e-08, 0, 1, 4, 2.08165e-12, 20)
+material_override = ExtResource("2_61qte")
 mesh = SubResource("PrismMesh_nbwa5")
 skeleton = NodePath("../../MeshInstance3D")
 
@@ -62,6 +67,7 @@ shape = SubResource("ConcavePolygonShape3D_wvarm")
 
 [node name="ObstaceRamp2" type="MeshInstance3D" parent="Ramp"]
 transform = Transform3D(1, 0, 1.01821e-08, 0, 1, 0, 1.01821e-08, 0, 1, -4, 2.08165e-12, -20)
+material_override = ExtResource("2_61qte")
 mesh = SubResource("PrismMesh_vnhbm")
 skeleton = NodePath("../../MeshInstance3D")
 
@@ -72,6 +78,7 @@ shape = SubResource("ConcavePolygonShape3D_3ubv4")
 
 [node name="Axis" type="MeshInstance3D" parent="Ramp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+material_override = ExtResource("3_m3y8y")
 mesh = SubResource("CylinderMesh_l8xmh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ramp/Axis"]

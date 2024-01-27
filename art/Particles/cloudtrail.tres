@@ -9,7 +9,7 @@ curve = SubResource("Curve_1j5gi")
 
 [resource]
 emission_shape = 1
-emission_sphere_radius = 1.0
+emission_sphere_radius = 0.5
 gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
 damping_min = 1.0
 damping_max = 1.0

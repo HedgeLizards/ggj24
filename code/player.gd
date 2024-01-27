@@ -7,7 +7,7 @@ func is_on_floor():
 
 
 func _integrate_forces(_state):
-	var id = $"..".player_id
+	var id = get_parent().player_id
 	var current_speed := Vector2(linear_velocity.x, linear_velocity.z)
 	var movement: Vector2 = InputHandler.movement_vector(id) * $/root/Main/Level.accelleration()
 	var max_speed = $/root/Main/Level.max_speed()
@@ -24,8 +24,8 @@ func _integrate_forces(_state):
 func _on_body_entered(body):
 	if body.has_method("is_player"):
 		var bounce = $/root/Main/Level.extra_bounce()
+		InputHandler.vibrate(get_parent().player_id)
 		apply_force(-(body.global_position - global_position).normalized()* bounce * body.linear_velocity.length())
-	#print("bounce")
-
+		
 func is_player():
 	return true

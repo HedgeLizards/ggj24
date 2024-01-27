@@ -17,6 +17,7 @@ func initialize(id):
 	player_id = id
 	var model = models[id].instantiate()
 	%Body.add_child(model)
+	InputHandler.vibrate(id)
 
 func go_to(to: Vector3):
 	%Body.global_position = to

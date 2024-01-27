@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://da0xobyjc316q"]
 
 [ext_resource type="Script" path="res://code/splash.gd" id="1_ancs0"]
-[ext_resource type="Material" uid="uid://jkubgtbm47jo" path="res://art/Textures/water.tres" id="1_hjjqq"]
+[ext_resource type="Material" uid="uid://jkubgtbm47jo" path="res://art/Textures/Levelcolors/water.tres" id="1_hjjqq"]
 
 [sub_resource type="Curve" id="Curve_tk310"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.488), 0.0, 0.0, 0, 0]
