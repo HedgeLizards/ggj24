@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_mus_lobby_finished():
-	if get_parent().state == get_parent().State.PLAYING:
+	if get_parent().state == get_parent().State.STARTING:
 		$MUS_Transition_1.play();
 	else:
 		$MUS_Lobby.play();
