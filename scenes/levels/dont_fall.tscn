@@ -20,7 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, 30)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, -30)
 
 [node name="Ground" parent="." instance=ExtResource("1_fnj0x")]
-transform = Transform3D(0.838556, -0.176835, -0.515318, 2.30492e-16, 0.945859, -0.324578, 0.544815, 0.272177, 0.793156, -19.1917, 2.62373, 18.3384)
+transform = Transform3D(0.707107, -0.241845, -0.664463, 0, 0.939693, -0.34202, 0.707107, 0.241845, 0.664463, -20, 2.9, 20)
 
 [node name="Ground2" parent="." instance=ExtResource("1_fnj0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
