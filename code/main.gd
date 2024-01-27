@@ -88,9 +88,9 @@ func _on_lobby_player_leave(player):
 	$UI.remove_player(player.player_id)
 	player.queue_free()
 	update_join_notice()
+	_on_lobby_player_ready.call_deferred(null)
 
 func start_lobby():
-	state = State.LOBBY
 	InputHandler.can_add_players = true
 	InputHandler.can_move_players = true
 	var lobby = Lobby.instantiate()
@@ -107,8 +107,14 @@ func _stop_round():
 		InputHandler.can_move_players = false
 		get_tree().change_scene_to_file('res://scenes/start.tscn')
 	else:
+		state = State.LOBBY
 		$StartTimer.stop()
 		$EndTimer.stop()
+		var connected_devices = Input.get_connected_joypads()
+		for player in %Players.get_children():
+			var input_player = InputHandler.players[player.player_id]
+			if input_player != null && input_player.device >= 0 && !connected_devices.has(input_player.device):
+				_on_lobby_player_leave(player)
 		start_lobby.call_deferred()
 
 func _on_start_timer_timeout():
