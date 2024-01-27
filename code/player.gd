@@ -15,7 +15,6 @@ func _integrate_forces(_state):
 		movement.x = 0
 	if movement.y < 0 && current_speed.x < -max_speed || movement.y > 0 && current_speed.y > max_speed:
 		movement.y = 0
-	var dy: float = 0
 	if is_on_floor() && InputHandler.jump_pressed(id) && linear_velocity.y < jump:
 		linear_velocity.y = jump
 	
