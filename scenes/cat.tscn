@@ -23,6 +23,8 @@ shading_mode = 0
 material = SubResource("StandardMaterial3D_va4s6")
 radius = 0.6
 height = 1.2
+radial_segments = 10
+rings = 5
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_fftc2")

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://da0xobyjc316q"]
+
+[ext_resource type="Material" uid="uid://jkubgtbm47jo" path="res://art/Textures/water.tres" id="1_hjjqq"]
+
+[sub_resource type="Curve" id="Curve_tk310"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.488), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3rxrl"]
+curve = SubResource("Curve_tk310")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yvag2"]
+particle_flag_align_y = true
+emission_shape = 6
+emission_ring_axis = Vector3(2.08165e-12, 1, 2.08165e-12)
+emission_ring_height = 0.1
+emission_ring_radius = 4.1
+emission_ring_inner_radius = 4.0
+angle_max = 208.2
+velocity_pivot = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+direction = Vector3(2.08165e-12, 10, 2.08165e-12)
+spread = 62.35
+initial_velocity_min = 7.0
+initial_velocity_max = 8.0
+radial_velocity_min = 4.0
+radial_velocity_max = 5.0
+radial_accel_min = 2.0
+radial_accel_max = 2.0
+tangential_accel_max = 2.08167e-15
+damping_max = 10.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_3rxrl")
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_m3tyu"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = ExtResource("1_hjjqq")
+amount = 50
+lifetime = 2.0
+speed_scale = 3.0
+explosiveness = 0.9
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_yvag2")
+draw_pass_1 = SubResource("TubeTrailMesh_m3tyu")
