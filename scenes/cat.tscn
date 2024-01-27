@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpru8qqcxur31"]
+[gd_scene load_steps=10 format=3 uid="uid://cpru8qqcxur31"]
 
 [ext_resource type="Script" path="res://code/player.gd" id="1_4x5th"]
 [ext_resource type="Script" path="res://code/player_all.gd" id="1_fftc2"]
-[ext_resource type="PackedScene" uid="uid://b0nesfiqea24v" path="res://scenes/cat_models/player1.tscn" id="3_mmw68"]
 [ext_resource type="Script" path="res://code/player_base.gd" id="4_0o1io"]
 [ext_resource type="Material" uid="uid://2488sotnejbk" path="res://art/Particles/cloudtrail.tres" id="4_oiamh"]
 
@@ -41,10 +40,6 @@ script = ExtResource("1_4x5th")
 
 [node name="Shape" type="CollisionShape3D" parent="Body"]
 shape = SubResource("SphereShape3D_l615a")
-
-[node name="Catmodel" parent="Body" instance=ExtResource("3_mmw68")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-visible = false
 
 [node name="Base" type="Node3D" parent="."]
 script = ExtResource("4_0o1io")
