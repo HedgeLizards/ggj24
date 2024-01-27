@@ -88,12 +88,15 @@ script = ExtResource("4_7lqkf")
 [node name="MUS_Lobby" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("4_bna3p")
 autoplay = true
+bus = &"Music"
 
 [node name="MUS_Transition_1" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("6_eoo0v")
+bus = &"Music"
 
 [node name="MUS_Game_Time_Loop" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("7_hppy8")
+bus = &"Music"
 
 [connection signal="body_exited" from="InGame" to="." method="_on_in_game_body_exited"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
