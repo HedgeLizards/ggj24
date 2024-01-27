@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0nesfiqea24v"]
+[gd_scene load_steps=7 format=3 uid="uid://b0nesfiqea24v"]
 
 [ext_resource type="PackedScene" uid="uid://c1m1lbs4oqw12" path="res://art/Cats/ggjcat.glb" id="1_gqcon"]
 [ext_resource type="Material" uid="uid://dibqs3spwxxxs" path="res://art/Textures/Cat/Fur1.tres" id="2_kcq33"]
 [ext_resource type="Material" uid="uid://c3obgtir3kx7x" path="res://art/Textures/Cat/Nose1.tres" id="3_67hn4"]
 [ext_resource type="Material" uid="uid://bmd3o5xjf5s8" path="res://art/Textures/Cat/Trim1.tres" id="3_gbopg"]
+[ext_resource type="Texture2D" uid="uid://bo1jkj8eunvg1" path="res://art/Cats/eye.png" id="5_pd0pl"]
 [ext_resource type="Texture2D" uid="uid://c4ljefsev457i" path="res://art/Textures/Cat/eyeblink.tres" id="5_riu7h"]
 
 [node name="ggjcat" instance=ExtResource("1_gqcon")]
@@ -15,9 +16,9 @@ surface_material_override/1 = ExtResource("3_67hn4")
 surface_material_override/2 = ExtResource("3_gbopg")
 
 [node name="Decal" type="Decal" parent="Cat_bdy" index="0"]
-transform = Transform3D(-0.414067, -0.754949, 0.376486, 0.0278923, 0.664526, 0.606533, -0.622307, 0.532107, -0.223319, -0.693617, 0.984587, 0.703271)
+transform = Transform3D(-0.414067, -0.754949, 0.376486, 0.0278923, 0.664526, 0.606533, -0.622307, 0.532108, -0.223319, -0.693617, 0.984587, 0.703271)
 size = Vector3(2, 1.50971, 2)
-texture_albedo = ExtResource("5_riu7h")
+texture_albedo = ExtResource("5_pd0pl")
 upper_fade = 1e-05
 lower_fade = 1e-05
 
