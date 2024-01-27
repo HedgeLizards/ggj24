@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyhh22x6f5g88"]
+[gd_scene load_steps=12 format=3 uid="uid://cyhh22x6f5g88"]
 
 [ext_resource type="Script" path="res://code/start.gd" id="1_c8csj"]
 [ext_resource type="FontFile" uid="uid://d322quqpvquoi" path="res://fonts/KiddosyfreeRegular-GOEag.otf" id="1_jt7q2"]
 [ext_resource type="Texture2D" uid="uid://b7m1pgyxyxrkk" path="res://art/hedgelizard.png" id="1_lovnt"]
 [ext_resource type="Texture2D" uid="uid://c8y6s2h8tuje6" path="res://icon.svg" id="2_ii37h"]
+[ext_resource type="Script" path="res://code/version.gd" id="4_18bna"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_wgtik"]
 device = -1
@@ -86,6 +87,21 @@ grow_vertical = 0
 pivot_offset = Vector2(0, 128)
 texture = ExtResource("1_lovnt")
 expand_mode = 1
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.975
+anchor_right = 0.5
+anchor_bottom = 0.975
+offset_left = -28.5
+offset_top = -23.0
+offset_right = 28.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "version"
+script = ExtResource("4_18bna")
 
 [node name="Audio" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(64, 64)
