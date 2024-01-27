@@ -15,5 +15,4 @@ damping_min = 1.0
 damping_max = 1.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_mdw70")
-turbulence_enabled = true
 turbulence_noise_strength = 2.0
