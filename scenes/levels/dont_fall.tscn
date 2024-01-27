@@ -1,15 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://db4vtsvauc846"]
+[gd_scene load_steps=3 format=3 uid="uid://db4vtsvauc846"]
 
 [ext_resource type="PackedScene" uid="uid://bulwrisqfjkqe" path="res://scenes/ground.tscn" id="1_fnj0x"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ppli"]
-albedo_color = Color(0.207843, 0.54902, 1, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_o0vqe"]
-material = SubResource("StandardMaterial3D_1ppli")
-size = Vector2(200, 200)
-subdivide_width = 512
-subdivide_depth = 512
+[ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="2_kriq8"]
 
 [node name="DontFall" type="Node3D"]
 
@@ -90,6 +82,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 16)
 [node name="Ground21" parent="." instance=ExtResource("1_fnj0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -16)
 
-[node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-mesh = SubResource("PlaneMesh_o0vqe")
+[node name="Water" parent="." instance=ExtResource("2_kriq8")]

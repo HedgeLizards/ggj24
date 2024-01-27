@@ -6,7 +6,8 @@ enum State { LOBBY, PLAYING }
 var state: State = State.LOBBY
 
 var levels = [
-	preload("res://scenes/levels/dont_fall.tscn")
+	preload("res://scenes/levels/dont_fall.tscn"),
+	preload("res://scenes/levels/disco.tscn")
 ]
 
 func start_game():
@@ -15,13 +16,13 @@ func start_game():
 	for child in %Level.get_children():
 		%Level.remove_child(child)
 		child.queue_free()
-	var level = levels[0].instantiate()
+	var level = levels.pick_random().instantiate()
 	%Level.add_child(level)
 	var spawns = level.get_node("Spawns").get_children()
 	spawns.shuffle()
 	for player in %Players.get_children():
 		var spawn: Node = spawns.pop_back()
-		player.go_to(spawn.position)
+		player.go_to(spawn.global_position)
 
 func _on_lobby_player_ready(id):
 	var ready_players: int = %Lobby.ready_players().size()
