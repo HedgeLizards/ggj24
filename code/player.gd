@@ -3,7 +3,7 @@ extends RigidBody3D
 const speed: float = 100
 const max_speed: float = 100
 const jump: float = 30
-const superbounce: float = 500
+const superbounce: float = 300
 
 func is_on_floor():
 	return %FloorCheck.get_overlapping_bodies().any(func(body): return body is StaticBody3D)

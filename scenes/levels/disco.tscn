@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf2kj66nnw6fo"]
+[gd_scene load_steps=4 format=3 uid="uid://bf2kj66nnw6fo"]
 
+[ext_resource type="Script" path="res://code/disco.gd" id="1_2trc0"]
 [ext_resource type="PackedScene" uid="uid://ct2n8xyipopbu" path="res://scenes/Disc.tscn" id="1_52cox"]
 [ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="2_qd2we"]
 
 [node name="Disco" type="Node3D"]
+script = ExtResource("1_2trc0")
 
 [node name="Disc" parent="." instance=ExtResource("1_52cox")]
 
