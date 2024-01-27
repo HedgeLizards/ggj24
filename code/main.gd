@@ -53,7 +53,7 @@ func _on_player_joined(id):
 	if state != State.LOBBY:
 		return
 	var cat = Cat.instantiate()
-	cat.player_id = id
+	cat.initialize(id)
 	%Players.add_child(cat)
 	#$Level/Lobby/Spawns.get_children().pick_random()
 	cat.go_to($Level/Lobby/Spawns.get_children().pick_random().position)
