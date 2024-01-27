@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpru8qqcxur31"]
+[gd_scene load_steps=11 format=3 uid="uid://cpru8qqcxur31"]
 
 [ext_resource type="Script" path="res://code/player.gd" id="1_4x5th"]
 [ext_resource type="Script" path="res://code/player_all.gd" id="1_fftc2"]
 [ext_resource type="Script" path="res://code/player_base.gd" id="4_0o1io"]
+[ext_resource type="Material" uid="uid://2488sotnejbk" path="res://art/Particles/cloudtrail.tres" id="4_oiamh"]
 [ext_resource type="PackedScene" uid="uid://b0nesfiqea24v" path="res://scenes/Catmodel.tscn" id="4_sevjg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e8e0b"]
@@ -14,6 +15,16 @@ radius = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgwul"]
 size = Vector3(3, 2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_va4s6"]
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_hx12w"]
+material = SubResource("StandardMaterial3D_va4s6")
+radius = 0.6
+height = 1.2
+radial_segments = 10
+rings = 5
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_fftc2")
@@ -43,3 +54,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Base/FloorCheck"]
 shape = SubResource("BoxShape3D_pgwul")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+amount = 30
+lifetime = 0.8
+randomness = 0.5
+process_material = ExtResource("4_oiamh")
+draw_pass_1 = SubResource("SphereMesh_hx12w")

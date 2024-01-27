@@ -6,13 +6,29 @@
 [ext_resource type="PackedScene" uid="uid://cie6lckxrpqvu" path="res://scenes/levels/lobby.tscn" id="3_liilj"]
 [ext_resource type="Script" path="res://code/music_manager.gd" id="4_7lqkf"]
 [ext_resource type="AudioStream" uid="uid://brpdljwiumjg6" path="res://audio/MUS_Lobby.ogg" id="4_bna3p"]
-[ext_resource type="Script" path="res://code/level.gd" id="4_se4ds"]
+[ext_resource type="Script" path="res://code/level.gd" id="4_rfxhx"]
 [ext_resource type="AudioStream" uid="uid://bsxeoj87ymnbx" path="res://audio/MUS_Transition_1.ogg" id="6_eoo0v"]
 [ext_resource type="AudioStream" uid="uid://wd3fixolg18n" path="res://audio/MUS_Game_Time_Loop.ogg" id="7_hppy8"]
 
 [sub_resource type="Environment" id="Environment_n3do1"]
 background_mode = 1
-background_color = Color(0.309804, 0.494118, 0.572549, 1)
+background_color = Color(0.247059, 0.643137, 0.666667, 1)
+ambient_light_color = Color(0.760784, 0.760784, 0.760784, 1)
+ambient_light_energy = 0.0
+ssao_enabled = true
+ssao_radius = 1.17
+ssao_intensity = 6.88
+ssil_enabled = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 2.19
+glow_bloom = 0.08
+fog_density = 0.4047
+volumetric_fog_density = 1.0
+volumetric_fog_length = 10.0
+adjustment_enabled = true
+adjustment_contrast = 1.2
+adjustment_saturation = 1.17
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_73ekn"]
 size = Vector3(256, 256, 256)
@@ -37,11 +53,12 @@ environment = SubResource("Environment_n3do1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.18474, 0.982787, 0, -0.982787, -0.18474, 0, 13.0844, 0)
+light_energy = 1.081
 shadow_enabled = true
 
 [node name="Level" type="Node3D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("4_se4ds")
+script = ExtResource("4_rfxhx")
 
 [node name="Lobby" parent="Level" instance=ExtResource("3_liilj")]
 
@@ -57,11 +74,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 128, 0)
 shape = SubResource("BoxShape3D_73ekn")
 
 [node name="StartTimer" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 2.5
 one_shot = true
 
 [node name="EndTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.0
 one_shot = true
 
 [node name="MusicManager" type="Node" parent="."]

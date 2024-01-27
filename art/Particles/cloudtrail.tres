@@ -1,0 +1,19 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://2488sotnejbk"]
+
+[sub_resource type="Curve" id="Curve_1j5gi"]
+_data = [Vector2(0.0179856, 0.972), 0.0, -2.54589, 0, 0, Vector2(1, 0), 0.0320768, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mdw70"]
+curve = SubResource("Curve_1j5gi")
+
+[resource]
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+damping_min = 1.0
+damping_max = 1.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_mdw70")
+turbulence_enabled = true
+turbulence_noise_strength = 2.0

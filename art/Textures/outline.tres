@@ -2,5 +2,5 @@
 
 [resource]
 shading_mode = 0
-albedo_color = Color(0.992157, 0.831373, 0, 1)
+albedo_color = Color(0, 0, 0, 1)
 disable_receive_shadows = true
