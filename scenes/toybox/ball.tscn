@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgm6a1a6y5gox"]
 
-[ext_resource type="Material" uid="uid://csf5w5n6wn7f" path="res://art/Textures/Levelcolors/wall.tres" id="1_ax570"]
+[ext_resource type="Material" uid="uid://csf5w5n6wn7f" path="res://art/Textures/Levelcolors/wall.tres" id="1_6222g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ldcn2"]
 friction = 2.0
@@ -19,7 +19,7 @@ physics_material_override = SubResource("PhysicsMaterial_ldcn2")
 gravity_scale = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_ax570")
+material_override = ExtResource("1_6222g")
 mesh = SubResource("SphereMesh_rfhmd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="1_11wr1"]
 [ext_resource type="PackedScene" uid="uid://bulwrisqfjkqe" path="res://scenes/ground.tscn" id="2_lnk1m"]
 [ext_resource type="PackedScene" uid="uid://cnv26p3l18vqd" path="res://scenes/wall.tscn" id="3_tc1am"]
-[ext_resource type="PackedScene" uid="uid://dvahmc5hdqeft" path="res://scenes/levels/toybox/pillar.tscn" id="4_tut67"]
-[ext_resource type="PackedScene" uid="uid://dev1u6y486jjk" path="res://scenes/levels/toybox/catnip_box.tscn" id="5_xo1tm"]
+[ext_resource type="PackedScene" uid="uid://dvahmc5hdqeft" path="res://scenes/toybox/pillar.tscn" id="4_tut67"]
+[ext_resource type="PackedScene" uid="uid://dev1u6y486jjk" path="res://scenes/toybox/catnip_box.tscn" id="5_xo1tm"]
 
 [node name="Cataloguenip" type="Node3D"]
 

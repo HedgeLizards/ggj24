@@ -5,7 +5,7 @@
 [ext_resource type="QuadMesh" uid="uid://d3mtsfy8brl2c" path="res://art/Textures/Levelcolors/select.tres" id="2_f7twx"]
 [ext_resource type="PackedScene" uid="uid://cnv26p3l18vqd" path="res://scenes/wall.tscn" id="2_smbfl"]
 [ext_resource type="FontFile" uid="uid://d322quqpvquoi" path="res://fonts/KiddosyfreeRegular-GOEag.otf" id="3_bxpwo"]
-[ext_resource type="PackedScene" uid="uid://dgm6a1a6y5gox" path="res://scenes/levels/toybox/ball.tscn" id="6_w1tl4"]
+[ext_resource type="PackedScene" uid="uid://dgm6a1a6y5gox" path="res://scenes/toybox/ball.tscn" id="6_l3qra"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fy3gt"]
 size = Vector3(32, 2, 32)
@@ -143,7 +143,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 32, 0, -32)
 [node name="Ground8" parent="." instance=ExtResource("1_fuhqo")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32, 0, 32)
 
-[node name="Ball" parent="." instance=ExtResource("6_w1tl4")]
+[node name="Ball" parent="." instance=ExtResource("6_l3qra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.53405, 12, 1.117)
 
 [connection signal="body_entered" from="Ready/ReadyArea" to="." method="_on_ready_area_body_entered"]
