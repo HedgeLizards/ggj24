@@ -45,8 +45,8 @@ func _on_player_joined(id):
 	print("meow")
 	var cat = Cat.instantiate()
 	cat.player_id = id
-	cat.go_to(Vector3(0, 5, 0))
 	%Players.add_child(cat)
+	cat.go_to(Vector3(0, 5, 0))
 
 func _on_in_game_body_exited(body):
 	if state != State.PLAYING:

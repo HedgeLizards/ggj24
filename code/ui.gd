@@ -10,9 +10,6 @@ func _ready():
 			label.get_theme_font_size('font_size') * screen_scale
 		)
 	
-	add_player(0)
-	add_player(1)
-	
 	InputHandler.player_joined.connect(add_player)
 	#InputHandler.player_left.connect(remove_player)
 
