@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://do2h6dlhtci4t"]
+[gd_scene load_steps=7 format=3 uid="uid://do2h6dlhtci4t"]
 
-[ext_resource type="PackedScene" uid="uid://cpru8qqcxur31" path="res://scenes/cat.tscn" id="1_1l0g6"]
 [ext_resource type="Script" path="res://code/main.gd" id="1_i2n6y"]
 [ext_resource type="PackedScene" uid="uid://caltol35o78ta" path="res://scenes/ui.tscn" id="2_jwe8d"]
 [ext_resource type="PackedScene" uid="uid://cie6lckxrpqvu" path="res://scenes/levels/lobby.tscn" id="3_liilj"]
@@ -20,13 +19,6 @@ script = ExtResource("1_i2n6y")
 
 [node name="Players" type="Node3D" parent="."]
 unique_name_in_owner = true
-
-[node name="Player2" parent="Players" instance=ExtResource("1_1l0g6")]
-transform = Transform3D(0.925375, 0, 0.379052, 0.0662713, 0.984598, -0.161787, -0.373214, 0.174834, 0.911122, 30, 5, -30)
-player_id = 1
-
-[node name="Player" parent="Players" instance=ExtResource("1_1l0g6")]
-transform = Transform3D(0.925375, 0, 0.379052, 0.0662713, 0.984598, -0.161787, -0.373214, 0.174834, 0.911122, -30, 5, 30)
 
 [node name="Version" type="Label" parent="."]
 offset_right = 40.0
@@ -62,5 +54,6 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 110, 0)
 shape = SubResource("BoxShape3D_73ekn")
 
+[connection signal="player_leave" from="Level/Lobby" to="." method="_on_lobby_player_leave"]
 [connection signal="player_ready" from="Level/Lobby" to="." method="_on_lobby_player_ready"]
 [connection signal="body_exited" from="InGame" to="." method="_on_in_game_body_exited"]

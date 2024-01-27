@@ -53,7 +53,7 @@ func _ready():
 	add_player(1)
 	
 	InputHandler.player_joined.connect(add_player)
-	InputHandler.player_left.connect(remove_player)
+	#InputHandler.player_left.connect(remove_player)
 
 func add_player(index):
 	v_box_containers[index].get_node('Name').text = PREFIXES.pick_random() + ' ' + SUFFIXES.pick_random()
