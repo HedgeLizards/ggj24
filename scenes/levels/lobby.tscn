@@ -1,16 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://cie6lckxrpqvu"]
+[gd_scene load_steps=11 format=3 uid="uid://cie6lckxrpqvu"]
 
 [ext_resource type="PackedScene" uid="uid://bulwrisqfjkqe" path="res://scenes/ground.tscn" id="1_fuhqo"]
-[ext_resource type="Texture2D" uid="uid://c6raogvu5t0yb" path="res://art/Textures/ready.png" id="1_nv03h"]
 [ext_resource type="Script" path="res://code/lobby.gd" id="1_uqge3"]
 [ext_resource type="PackedScene" uid="uid://cnv26p3l18vqd" path="res://scenes/wall.tscn" id="2_smbfl"]
-[ext_resource type="Texture2D" uid="uid://b1ilvbvfge3ka" path="res://art/Textures/leave.png" id="3_pit8b"]
+[ext_resource type="FontFile" uid="uid://d322quqpvquoi" path="res://fonts/KiddosyfreeRegular-GOEag.otf" id="3_bxpwo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fy3gt"]
 size = Vector3(32, 2, 32)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgh0g"]
-albedo_texture = ExtResource("1_nv03h")
+albedo_color = Color(0.752941, 0.376471, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_7pwrj"]
 material = SubResource("StandardMaterial3D_qgh0g")
@@ -18,10 +17,10 @@ size = Vector2(32, 32)
 orientation = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b26vh"]
-size = Vector3(32, 3, 32)
+size = Vector3(32, 1, 32)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypoh0"]
-albedo_texture = ExtResource("3_pit8b")
+albedo_color = Color(0.768627, 0.360784, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_pdgjw"]
 material = SubResource("StandardMaterial3D_ypoh0")
@@ -60,19 +59,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32)
 [node name="StaticBody3D" type="StaticBody3D" parent="Ready"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ready/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 shape = SubResource("BoxShape3D_fy3gt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ready/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("QuadMesh_7pwrj")
 
 [node name="ReadyArea" type="Area3D" parent="Ready"]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 collision_layer = 2
 collision_mask = 2
+input_ray_pickable = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ready/ReadyArea"]
 shape = SubResource("BoxShape3D_b26vh")
+
+[node name="Label3D" type="Label3D" parent="Ready"]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 1.01, -4)
+pixel_size = 0.1
+text = "Ready"
+font = ExtResource("3_bxpwo")
+font_size = 108
+outline_size = 0
 
 [node name="Leave" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32)
@@ -84,15 +94,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 shape = SubResource("BoxShape3D_fy3gt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Leave/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("QuadMesh_pdgjw")
 
 [node name="LeaveArea" type="Area3D" parent="Leave"]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 collision_layer = 2
 collision_mask = 2
+input_ray_pickable = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Leave/LeaveArea"]
 shape = SubResource("BoxShape3D_b26vh")
+
+[node name="Label3D" type="Label3D" parent="Leave"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.01, 4)
+pixel_size = 0.1
+text = "Leave"
+font = ExtResource("3_bxpwo")
+font_size = 108
+outline_size = 0
 
 [node name="Ground" parent="." instance=ExtResource("1_fuhqo")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32, 0, 0)

@@ -49,6 +49,7 @@ script = ExtResource("4_se4ds")
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
+input_ray_pickable = false
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InGame"]

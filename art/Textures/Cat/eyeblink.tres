@@ -1,0 +1,11 @@
+[gd_resource type="AnimatedTexture" load_steps=3 format=3 uid="uid://c4ljefsev457i"]
+
+[ext_resource type="Texture2D" uid="uid://bo1jkj8eunvg1" path="res://art/Cats/eye.png" id="1_n8dd7"]
+[ext_resource type="Texture2D" uid="uid://cumue1h76772" path="res://art/Cats/eye_blink.png" id="2_ugumh"]
+
+[resource]
+frames = 2
+frame_0/texture = ExtResource("1_n8dd7")
+frame_0/duration = 3.0
+frame_1/texture = ExtResource("2_ugumh")
+frame_1/duration = 0.2
