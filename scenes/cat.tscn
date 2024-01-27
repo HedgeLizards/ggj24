@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpru8qqcxur31"]
+[gd_scene load_steps=8 format=3 uid="uid://cpru8qqcxur31"]
 
 [ext_resource type="Script" path="res://code/player.gd" id="1_4x5th"]
 [ext_resource type="Script" path="res://code/player_all.gd" id="1_fftc2"]
-[ext_resource type="PackedScene" path="res://scenes/Catmodel.tscn" id="3_seese"]
 [ext_resource type="Script" path="res://code/player_base.gd" id="4_0o1io"]
+[ext_resource type="PackedScene" uid="uid://b0nesfiqea24v" path="res://scenes/Catmodel.tscn" id="4_sevjg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e8e0b"]
 rough = true
@@ -11,16 +11,6 @@ bounce = 0.8
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l615a"]
 radius = 2.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kfwy"]
-shading_mode = 0
-
-[sub_resource type="SphereMesh" id="SphereMesh_koa0y"]
-material = SubResource("StandardMaterial3D_3kfwy")
-
-[sub_resource type="Curve" id="Curve_cxiej"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgwul"]
 size = Vector3(3, 2, 3)
@@ -32,36 +22,20 @@ script = ExtResource("1_fftc2")
 unique_name_in_owner = true
 collision_layer = 3
 collision_mask = 3
-mass = 2.0
+mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_e8e0b")
 gravity_scale = 4.0
-max_contacts_reported = 4
-contact_monitor = true
 linear_damp = 0.2
 script = ExtResource("1_4x5th")
-
-[node name="Catmodel" parent="Body" instance=ExtResource("3_seese")]
-transform = Transform3D(1.1788, 0, 0, 0, 1.1788, 0, 0, 0, 1.1788, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="Shape" type="CollisionShape3D" parent="Body"]
 shape = SubResource("SphereShape3D_l615a")
 
+[node name="ggjcat" parent="Body" instance=ExtResource("4_sevjg")]
+transform = Transform3D(1.17131, 0, 0, 0, 1.17131, 0, 0, 0, 1.17131, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="Base" type="Node3D" parent="."]
 script = ExtResource("4_0o1io")
-
-[node name="CPUParticles3D" type="CPUParticles3D" parent="Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-cast_shadow = 0
-amount = 100
-lifetime = 0.5
-mesh = SubResource("SphereMesh_koa0y")
-emission_shape = 2
-emission_sphere_radius = 1.0
-angle_min = -720.0
-angle_max = 720.0
-scale_amount_min = 0.5
-scale_amount_max = 1.8
-scale_amount_curve = SubResource("Curve_cxiej")
 
 [node name="FloorCheck" type="Area3D" parent="Base"]
 unique_name_in_owner = true
@@ -69,5 +43,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Base/FloorCheck"]
 shape = SubResource("BoxShape3D_pgwul")
-
-[connection signal="body_entered" from="Body" to="Body" method="_on_body_entered"]
