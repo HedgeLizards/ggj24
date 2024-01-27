@@ -7,9 +7,9 @@ func _ready():
 		$VBoxContainer.get_theme_constant('separation') * screen_scale
 	)
 	
-	for button in [$VBoxContainer/Play, $VBoxContainer/Quit]:
-		button.add_theme_font_size_override('font_size',
-			button.get_theme_font_size('font_size') * screen_scale
+	for label in [$VBoxContainer/Play, $VBoxContainer/Quit, $Version]:
+		label.add_theme_font_size_override('font_size',
+			label.get_theme_font_size('font_size') * screen_scale
 		)
 	
 	for texture in [$Logo, $Audio]:
