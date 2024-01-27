@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://code/music_manager.gd" id="4_7lqkf"]
 [ext_resource type="AudioStream" uid="uid://brpdljwiumjg6" path="res://audio/MUS_Lobby.ogg" id="4_bna3p"]
 [ext_resource type="AudioStream" uid="uid://bsxeoj87ymnbx" path="res://audio/MUS_Transition_1.ogg" id="6_eoo0v"]
-[ext_resource type="AudioStream" uid="uid://wd3fixolg18n" path="res://audio/MUS_Game_Time_Loop.ogg" id="7_hppy8"]
+[ext_resource type="AudioStream" uid="uid://bsec5ca5qdgxu" path="res://audio/MUS_Game_Time_Loop.ogg" id="7_hppy8"]
 
 [sub_resource type="Environment" id="Environment_n3do1"]
 background_mode = 1
@@ -76,5 +76,3 @@ stream = ExtResource("7_hppy8")
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]
 [connection signal="finished" from="MusicManager/MUS_Lobby" to="MusicManager" method="_on_mus_lobby_finished"]
-[connection signal="finished" from="MusicManager/MUS_Transition_1" to="MusicManager" method="_on_mus_transition_1_finished"]
-[connection signal="finished" from="MusicManager/MUS_Game_Time_Loop" to="MusicManager" method="_on_mus_game_time_loop_finished"]
