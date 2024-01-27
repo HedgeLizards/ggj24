@@ -1,0 +1,11 @@
+[gd_resource type="QuadMesh" load_steps=2 format=3 uid="uid://d3mtsfy8brl2c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgh0g"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.784314, 0.34902, 0, 1)
+
+[resource]
+material = SubResource("StandardMaterial3D_qgh0g")
+size = Vector2(32, 32)
+orientation = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi6pijctvejci"]
+[gd_scene load_steps=7 format=3 uid="uid://dev1u6y486jjk"]
 
 [ext_resource type="Script" path="res://code/catnipbox.gd" id="1_q55yx"]
 [ext_resource type="Texture2D" uid="uid://qnv1k4siy0ac" path="res://art/Powerups/sprite_catnip.png" id="2_t67nh"]
@@ -9,9 +9,12 @@
 size = Vector3(4, 4, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ai2xm"]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("2_t67nh")
 
 [sub_resource type="BoxMesh" id="BoxMesh_linu2"]
+lightmap_size_hint = Vector2i(44, 66)
 material = SubResource("StandardMaterial3D_ai2xm")
 size = Vector3(4, 4, 4)
 subdivide_width = 2

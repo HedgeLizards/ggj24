@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://l4t55lom072n"]
+[gd_scene load_steps=7 format=3 uid="uid://de3s87m178ass"]
 
 [ext_resource type="Script" path="res://code/pushover.gd" id="1_5wdy3"]
 [ext_resource type="PackedScene" uid="uid://bulwrisqfjkqe" path="res://scenes/ground.tscn" id="1_cctgv"]
 [ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="2_pxibe"]
+[ext_resource type="Material" uid="uid://csf5w5n6wn7f" path="res://art/Textures/Levelcolors/wall.tres" id="3_p4co8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1abqq"]
+material = ExtResource("3_p4co8")
 size = Vector3(29, 12, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s2qhb"]
