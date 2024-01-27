@@ -1,6 +1,6 @@
 extends Node
 
-signal state_changed
+signal stop_round
 signal player_joined
 
 enum { SELECTING, WAITING, PLAYING }
@@ -25,7 +25,7 @@ func _input(event):
 		add_player(event.device)
 		
 	if event is InputEventKey && event.pressed && event.keycode == KEY_ESCAPE:
-		state_changed.emit()
+		stop_round.emit()
 	
 	elif event is InputEventJoypadMotion:
 		for player in players:

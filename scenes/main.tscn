@@ -47,6 +47,4 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 110, 0)
 shape = SubResource("BoxShape3D_73ekn")
 
-[connection signal="player_leave" from="Level/Lobby" to="." method="_on_lobby_player_leave"]
-[connection signal="player_ready" from="Level/Lobby" to="." method="_on_lobby_player_ready"]
 [connection signal="body_exited" from="InGame" to="." method="_on_in_game_body_exited"]

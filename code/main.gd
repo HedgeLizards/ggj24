@@ -7,6 +7,7 @@ var state: State = State.LOBBY
 var dry_players := 0
 
 var Cat = preload("res://scenes/cat.tscn")
+var Lobby = preload("res://scenes/levels/lobby.tscn")
 
 var levels = [
 	preload("res://scenes/levels/dont_fall.tscn"),
@@ -15,14 +16,13 @@ var levels = [
 
 func _ready():
 	InputHandler.player_joined.connect(_on_player_joined)
+	InputHandler.stop_round.connect(_stop_round)
+	start_lobby()
 
-func start_game():
-	InputHandler.can_add_players = false
-	state = State.PLAYING
+func open_level(level):
 	for child in %Level.get_children():
 		%Level.remove_child(child)
 		child.queue_free()
-	var level = levels.pick_random().instantiate()
 	%Level.add_child(level)
 	var spawns = level.get_node("Spawns").get_children()
 	spawns.shuffle()
@@ -33,9 +33,14 @@ func start_game():
 		$UI.update_player_dry(player.player_id, true)
 	dry_players = %Players.get_child_count()
 
+func start_game():
+	InputHandler.can_add_players = false
+	state = State.PLAYING
+	var level = levels.pick_random().instantiate()
+	open_level(level)
+
 func _on_lobby_player_ready(id):
-	var ready_players: int = %Lobby.ready_players().size()
-	print("ready ", ready_players)
+	var ready_players: int = $Level/Lobby.ready_players().size()
 	if ready_players > 1 && ready_players == %Players.get_children().size():
 		start_game()
 
@@ -79,3 +84,15 @@ func _on_lobby_player_leave(player):
 	InputHandler.remove_player(player.player_id)
 	$UI.remove_player(player.player_id)
 	player.queue_free()
+
+func start_lobby():
+	state = State.LOBBY
+	InputHandler.can_add_players = true
+	var lobby = Lobby.instantiate()
+	open_level(lobby)
+	lobby.player_leave.connect(_on_lobby_player_leave)
+	lobby.player_ready.connect(_on_lobby_player_ready)
+
+
+func _stop_round():
+	start_lobby.call_deferred()
