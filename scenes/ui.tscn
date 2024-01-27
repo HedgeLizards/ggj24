@@ -96,8 +96,7 @@ theme_override_fonts/font = ExtResource("3_krgwb")
 theme_override_font_sizes/font_size = 72
 horizontal_alignment = 1
 
-[node name="Notice" type="Label" parent="."]
-modulate = Color(1, 1, 1, 0)
+[node name="Notice" type="RichTextLabel" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -109,10 +108,18 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_i4sjb")
-theme_override_font_sizes/font_size = 60
+theme_override_fonts/normal_font = ExtResource("1_i4sjb")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "tekst"
+fit_content = true
+autowrap_mode = 0
+
+[node name="NoticeTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="visibility_changed" from="Player1" to="Player1" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="Player2" to="Player2" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="Player3" to="Player3" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="Player4" to="Player4" method="_on_visibility_changed"]
+[connection signal="timeout" from="NoticeTimer" to="." method="hide_notice"]

@@ -1,10 +1,9 @@
 extends Node3D
 
 
-enum State { LOBBY, PLAYING }
+enum State { LOBBY, STARTING, PLAYING }
 
 var state: State = State.LOBBY
-var dry_players := 0
 
 var Cat = preload("res://scenes/cat.tscn")
 var Lobby = preload("res://scenes/levels/lobby.tscn")
@@ -31,48 +30,52 @@ func open_level(level):
 		player.go_to(spawn.global_position)
 		player.dry = true
 		$UI.update_player_dry(player.player_id, true)
-	dry_players = %Players.get_child_count()
 
 func start_game():
 	InputHandler.can_add_players = false
-	state = State.PLAYING
+	InputHandler.can_move_players = false
+	state = State.STARTING
 	var level = levels.pick_random().instantiate()
 	open_level(level)
+	$UI.show_notice('Ready...', 1.5)
+	$StartTimer.start()
 
-func _on_lobby_player_ready(id):
+func _on_lobby_player_ready(_id):
 	var ready_players: int = $Level/Lobby.ready_players().size()
-	if ready_players > 1 && ready_players == %Players.get_children().size():
-		start_game()
+	if ready_players > 1 && ready_players == %Players.get_child_count():
+		start_game.call_deferred()
 
 func _on_player_joined(id):
 	if state != State.LOBBY:
 		return
-	print("meow")
 	var cat = Cat.instantiate()
 	cat.player_id = id
 	%Players.add_child(cat)
 	cat.go_to(Vector3(0, 5, 0))
+	update_join_notice()
 
 func _on_in_game_body_exited(body):
-	if state != State.PLAYING:
+	if state == State.LOBBY:
 		return
+	
 	body.get_parent().dry = false
 	
 	$UI.update_player_dry(body.get_parent().player_id, false)
 	
-	dry_players -= 1
-	
-	#if dry_players == 0:
-		#return
+	var dry_players = []
 	
 	for player in %Players.get_children():
 		if player.dry:
 			player.score += 1
 			
 			$UI.update_player_score(player.player_id, player.score)
+			
+			dry_players.push_back(player)
 	
-	if dry_players <= 1:
-		start_game.call_deferred()
+	if dry_players.size() == 1:
+		$UI.show_notice('%s WINS' % $UI.players[dry_players[0].player_id].get_node('Name').text, 3)
+		
+		$EndTimer.start()
 
 func _physics_process(delta):
 	%CameraBase.rotation.y += delta / 10
@@ -84,15 +87,72 @@ func _on_lobby_player_leave(player):
 	InputHandler.remove_player(player.player_id)
 	$UI.remove_player(player.player_id)
 	player.queue_free()
+	update_join_notice()
 
 func start_lobby():
 	state = State.LOBBY
 	InputHandler.can_add_players = true
+	InputHandler.can_move_players = true
 	var lobby = Lobby.instantiate()
 	open_level(lobby)
 	lobby.player_leave.connect(_on_lobby_player_leave)
 	lobby.player_ready.connect(_on_lobby_player_ready)
-
+	update_join_notice()
 
 func _stop_round():
-	start_lobby.call_deferred()
+	if state == State.LOBBY:
+		for player in %Players.get_children():
+			_on_lobby_player_leave(player)
+		InputHandler.can_add_players = false
+		InputHandler.can_move_players = false
+		get_tree().change_scene_to_file('res://scenes/start.tscn')
+	else:
+		$StartTimer.stop()
+		$EndTimer.stop()
+		start_lobby.call_deferred()
+
+func _on_start_timer_timeout():
+	InputHandler.can_move_players = true
+	state = State.PLAYING
+	$UI.show_notice("LET'S ROLL", 1.5)
+
+func _on_end_timer_timeout():
+	start_game()
+
+func update_join_notice():
+	var player_slots_available = 4
+	var player_right_available = true
+	var player_left_available = true
+	
+	for player in InputHandler.players:
+		if player != null:
+			player_slots_available -= 1
+			
+			match player.device:
+				-1:
+					player_right_available = false
+				-2:
+					player_left_available = false
+	
+	if player_slots_available == 0:
+		$UI.hide_notice()
+		
+		return
+	
+	var notice = 'Press'
+	
+	if player_right_available:
+		notice += ' Enter'
+	
+	if player_right_available && player_left_available:
+		notice += ','
+	
+	if player_left_available:
+		notice += ' Space'
+		
+	if player_left_available || player_right_available:
+		notice += ' or'
+	
+	notice += ' [color=#0e7a0d]A[/color] to join'
+	
+	$UI.show_notice(notice)

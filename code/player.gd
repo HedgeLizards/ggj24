@@ -9,7 +9,7 @@ func is_on_floor():
 	return %FloorCheck.get_overlapping_bodies().any(func(body): return body is StaticBody3D)
 
 
-func _integrate_forces(state):
+func _integrate_forces(_state):
 	var id = $"..".player_id
 	var current_speed := Vector2(linear_velocity.x, linear_velocity.z)
 	var movement: Vector2 = InputHandler.movement_vector(id) * speed
