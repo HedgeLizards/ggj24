@@ -24,6 +24,9 @@ func _ready():
 	for texture in [$Logo, $Audio]:
 		texture.scale *= screen_scale
 	
+	if AudioServer.is_bus_mute(0):
+		$Audio.set_pressed_no_signal(true)
+	
 	if OS.has_feature('web'):
 		$VBoxContainer/Quit.queue_free()
 

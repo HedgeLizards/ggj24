@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cyhh22x6f5g88"]
+[gd_scene load_steps=12 format=3 uid="uid://cyhh22x6f5g88"]
 
 [ext_resource type="Script" path="res://code/start.gd" id="1_c8csj"]
 [ext_resource type="FontFile" uid="uid://d322quqpvquoi" path="res://fonts/KiddosyfreeRegular-GOEag.otf" id="1_jt7q2"]
@@ -21,16 +21,6 @@ keycode = 4194305
 
 [sub_resource type="Shortcut" id="Shortcut_dkxca"]
 events = [SubResource("InputEventKey_6anw4")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_mdhip"]
-device = -1
-keycode = 77
-physical_keycode = 77
-key_label = 77
-unicode = 109
-
-[sub_resource type="Shortcut" id="Shortcut_1r3eh"]
-events = [SubResource("InputEventKey_mdhip")]
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -160,8 +150,6 @@ scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(252, 256)
 mouse_default_cursor_shape = 2
 toggle_mode = true
-shortcut = SubResource("Shortcut_1r3eh")
-shortcut_in_tooltip = false
 texture_normal = ExtResource("6_o4boi")
 texture_pressed = ExtResource("7_0mjd7")
 

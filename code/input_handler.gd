@@ -13,7 +13,12 @@ var can_move_players = false
 
 func _input(event):
 	if event is InputEventKey && event.pressed:
-		if event.keycode == KEY_ESCAPE:
+		if event.keycode == KEY_M:
+			AudioServer.set_bus_mute(0, !AudioServer.is_bus_mute(0))
+			
+			if has_node('../Start'):
+				$'../Start/Audio'.set_pressed_no_signal(AudioServer.is_bus_mute(0))
+		elif event.keycode == KEY_ESCAPE:
 			stop_round.emit()
 		elif event.is_action('join_0'):
 			add_player(-2)
