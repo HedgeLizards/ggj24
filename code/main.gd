@@ -4,6 +4,7 @@ extends Node3D
 enum State { LOBBY, STARTING, PLAYING }
 
 var state: State = State.LOBBY
+var countdown
 
 var Cat = preload("res://scenes/cat.tscn")
 var Lobby = preload("res://scenes/levels/lobby.tscn")
@@ -37,8 +38,8 @@ func start_game():
 	state = State.STARTING
 	var level = levels.pick_random().instantiate()
 	open_level(level)
-	$UI.show_notice('Ready...', 1.5)
-	$StartTimer.start()
+	countdown = 3
+	_on_start_timer_timeout()
 
 func _on_lobby_player_ready(_id):
 	var ready_players: int = $Level/Lobby.ready_players().size()
@@ -74,7 +75,7 @@ func _on_in_game_body_exited(body):
 			dry_players.push_back(player)
 	
 	if dry_players.size() == 1:
-		$UI.show_notice('%s WINS' % $UI.players[dry_players[0].player_id].get_node('Name').text, 3)
+		$UI.show_notice('%s WINS' % $UI.players[dry_players[0].player_id].get_node('Name').text, 2.5)
 		
 		$EndTimer.start()
 
@@ -116,9 +117,16 @@ func _stop_round():
 		start_lobby.call_deferred()
 
 func _on_start_timer_timeout():
-	InputHandler.can_move_players = true
-	state = State.PLAYING
-	$UI.show_notice("LET'S ROLL", 1.5)
+	if countdown > 0:
+		$UI.show_notice(str(countdown), 0.5)
+		countdown -= 1
+		$StartTimer.start()
+	else:
+		InputHandler.can_move_players = true
+		state = State.PLAYING
+		$UI.show_notice("LET'S ROLL", 0.5)
+		if $Level.get_child(0).has_method('enable'):
+			$Level.get_child(0).enable()
 
 func _on_end_timer_timeout():
 	start_game()
