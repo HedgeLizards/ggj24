@@ -3,6 +3,7 @@ extends RigidBody3D
 const speed: float = 100
 const max_speed: float = 100
 const jump: float = 30
+const superbounce: float = 10000
 
 func is_on_floor():
 	return %FloorCheck.get_overlapping_bodies().any(func(body): return body is StaticBody3D)
@@ -21,3 +22,12 @@ func _integrate_forces(_state):
 		linear_velocity.y = jump
 	
 	apply_force(Vector3(movement.x, 0, movement.y))
+
+
+func _on_body_entered(body):
+	if body.has_method("is_player"):
+		apply_force(-(body.global_position - global_position).normalized()* superbounce)
+	#print("bounce")
+
+func is_player():
+	return true

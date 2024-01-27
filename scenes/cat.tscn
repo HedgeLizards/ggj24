@@ -35,6 +35,8 @@ collision_mask = 3
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_e8e0b")
 gravity_scale = 4.0
+max_contacts_reported = 4
+contact_monitor = true
 linear_damp = 0.2
 script = ExtResource("1_4x5th")
 
@@ -67,3 +69,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Base/FloorCheck"]
 shape = SubResource("BoxShape3D_pgwul")
+
+[connection signal="body_entered" from="Body" to="Body" method="_on_body_entered"]
