@@ -15,7 +15,7 @@ func destroy():
 	get_parent().add_child(p)
 	p.global_position = global_position
 	p.emitting = true
-	$/root/Main/UI.show_notice("Zoomies!", 3)
+	$/root/Main/UI.show_notice("ZOOMIES", 3)
 	$/root/Main/Level.zoomies = 3
 	queue_free()
 	

@@ -19,6 +19,10 @@ config/icon="res://art/Powerups/sprite_yarn_purple.png"
 
 InputHandler="*res://code/input_handler.gd"
 
+[display]
+
+window/size/mode=4
+
 [input]
 
 left_0={
