@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://rcl7125xxsa4"]
+
+[ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="1_wkcos"]
+[ext_resource type="PackedScene" uid="uid://6etc47nxdjbr" path="res://scenes/toybox/funnel.tscn" id="2_lhl5i"]
+
+[node name="Level" type="Node3D"]
+
+[node name="Spawns" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 52.076, 0)
+
+[node name="Node3D" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, 0)
+
+[node name="Node3D2" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 5, 0)
+
+[node name="Node3D3" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -30)
+
+[node name="Node3D4" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 30)
+
+[node name="Water" parent="." instance=ExtResource("1_wkcos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="funnel" parent="." instance=ExtResource("2_lhl5i")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 2.08165e-12, 16.15, 2.08165e-12)

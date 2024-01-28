@@ -45,4 +45,5 @@ upper_fade = 1e-05
 lower_fade = 1e-05
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cat_bdy" index="2"]
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_cfi64")

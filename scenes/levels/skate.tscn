@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdbxkpuay1shb"]
+
+[ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="1_bllpt"]
+[ext_resource type="PackedScene" uid="uid://b0nesfiqea24v" path="res://scenes/cat_models/player1.tscn" id="2_xmw0y"]
+[ext_resource type="PackedScene" uid="uid://d10gyqyf07b8w" path="res://scenes/toybox/skateramp.tscn" id="3_dqgh0"]
+
+[node name="Level" type="Node3D"]
+
+[node name="Spawns" type="Node3D" parent="."]
+transform = Transform3D(0.529873, 0, 0, 0, 0.781231, 0, 0, 0, 0.824363, 6.11902e-13, -0.862625, 1.34105e-13)
+
+[node name="Node3D" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.4186, 28.5092, -22.3484)
+
+[node name="Node3D2" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.6696, 28.1134, 17.8975)
+
+[node name="Node3D3" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4183, 29.0984, -22.2752)
+
+[node name="Node3D4" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.3808, 29.9133, 18.2361)
+
+[node name="Water" parent="." instance=ExtResource("1_bllpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="ggjcat" parent="." instance=ExtResource("2_xmw0y")]
+transform = Transform3D(0.757256, 0, 0, 0, 0.914821, 0, 0, 0, 1.33538, 1.83648e-12, 13.1761, 2.17905e-12)
+visible = false
+
+[node name="ramp" parent="." instance=ExtResource("3_dqgh0")]
+transform = Transform3D(0.56396, 0, 0, 0, 0.502169, 0, 0, 0, 0.892435, 1.71491e-12, -0.0941019, 1.85014e-12)

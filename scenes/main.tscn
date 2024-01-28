@@ -28,13 +28,16 @@ sky_material = SubResource("ProceduralSkyMaterial_xaxcd")
 [sub_resource type="Environment" id="Environment_n3do1"]
 background_mode = 1
 background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 0.8
 sky = SubResource("Sky_0nv35")
 ambient_light_energy = 0.0
 ssao_enabled = true
-ssao_radius = 16.0
-ssao_intensity = 4.0
+ssao_radius = 2.7
+ssao_intensity = 16.0
 ssao_power = 1.21838
-ssao_detail = 1.0
+ssao_detail = 0.82
+ssao_horizon = 0.0
+ssao_sharpness = 1.0
 ssil_enabled = true
 ssil_radius = 7.52
 glow_enabled = true
@@ -76,10 +79,10 @@ transform = Transform3D(1, -6.64895e-16, 1.47404e-16, 1.47404e-16, 0.422618, 0.9
 environment = SubResource("Environment_n3do1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.18474, 0.982787, 0, -0.982787, -0.18474, 0, 13.0844, 0)
-visible = false
-light_energy = 1.081
+transform = Transform3D(-0.560639, 0.585527, -0.585527, 2.4663e-16, 0.707107, 0.707107, 0.82806, 0.396432, -0.396432, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 shadow_enabled = true
+shadow_transmittance_bias = 16.0
+shadow_blur = 0.0
 
 [node name="Level" type="Node3D" parent="."]
 unique_name_in_owner = true

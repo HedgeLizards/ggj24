@@ -2,7 +2,7 @@
 
 [resource]
 render_priority = 1
-transparency = 1
+transparency = 4
 depth_draw_mode = 1
 diffuse_mode = 3
 specular_mode = 1
