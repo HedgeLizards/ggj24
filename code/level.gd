@@ -4,8 +4,8 @@ const superbounce: float = 100
 var time = 0
 var zoomies = 0
 
-const speed: float = 400
-const speed_max: float = 50
+const speed: float = 250
+const speed_max: float = 25
 
 func reset():
 	time = 0

@@ -12,7 +12,7 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e8e0b"]
 rough = true
-bounce = 0.8
+bounce = 0.3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l615a"]
 radius = 2.5
@@ -55,9 +55,9 @@ script = ExtResource("1_fftc2")
 unique_name_in_owner = true
 collision_layer = 3
 collision_mask = 3
-mass = 3.5
+mass = 4.0
 physics_material_override = SubResource("PhysicsMaterial_e8e0b")
-gravity_scale = 4.0
+gravity_scale = 12.0
 max_contacts_reported = 3
 contact_monitor = true
 linear_damp = 0.2
