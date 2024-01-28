@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://do2h6dlhtci4t"]
+[gd_scene load_steps=21 format=3 uid="uid://do2h6dlhtci4t"]
 
 [ext_resource type="Script" path="res://code/main.gd" id="1_i2n6y"]
 [ext_resource type="PackedScene" uid="uid://caltol35o78ta" path="res://scenes/ui.tscn" id="2_jwe8d"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bx2tfo025ds3a" path="res://audio/SND_Player_Join_2.wav" id="11_kowjq"]
 [ext_resource type="AudioStream" uid="uid://bt3m36j1740ud" path="res://audio/SND_Player_Knocked_Off.wav" id="12_1osgu"]
 [ext_resource type="AudioStream" uid="uid://diw77w2sbot7x" path="res://audio/SND_Player_Join_3.wav" id="12_ox681"]
+[ext_resource type="AudioStream" uid="uid://drntpujg25if5" path="res://audio/SND_Player_Zoomies.wav" id="13_cqi71"]
 [ext_resource type="AudioStream" uid="uid://clyjslbmtkglu" path="res://audio/SND_Player_Join_4.wav" id="13_l1fx4"]
 
 [sub_resource type="Environment" id="Environment_n3do1"]
@@ -125,6 +126,11 @@ bus = &"SFX"
 
 [node name="SND_Player_Knocked_Off" type="AudioStreamPlayer" parent="SoundEffects"]
 stream = ExtResource("12_1osgu")
+volume_db = -12.0
+bus = &"SFX"
+
+[node name="SND_Player_Zoomies" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("13_cqi71")
 volume_db = -12.0
 bus = &"SFX"
 
