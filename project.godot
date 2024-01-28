@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="hedgelizards_ggj24"
+config/name="Collision Cats"
 run/main_scene="res://scenes/start.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://art/hedgelizard.png"
+config/icon="res://art/Powerups/sprite_yarn_purple.png"
 
 [autoload]
 

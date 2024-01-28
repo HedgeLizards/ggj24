@@ -119,29 +119,29 @@ bus = &"SFX"
 
 [node name="SND_Player_Left" type="AudioStreamPlayer" parent="SoundEffects"]
 stream = ExtResource("11_aq3gh")
-volume_db = -4.0
+volume_db = -15.0
 bus = &"SFX"
 
 [node name="PlayerJoined" type="Node" parent="SoundEffects"]
 
 [node name="SND_Player_Join_1" type="AudioStreamPlayer" parent="SoundEffects/PlayerJoined"]
 stream = ExtResource("10_txgcc")
-volume_db = -4.0
+volume_db = -15.0
 bus = &"SFX"
 
 [node name="SND_Player_Join_2" type="AudioStreamPlayer" parent="SoundEffects/PlayerJoined"]
 stream = ExtResource("11_kowjq")
-volume_db = -4.0
+volume_db = -15.0
 bus = &"SFX"
 
 [node name="SND_Player_Join_3" type="AudioStreamPlayer" parent="SoundEffects/PlayerJoined"]
 stream = ExtResource("12_ox681")
-volume_db = -4.0
+volume_db = -15.0
 bus = &"SFX"
 
 [node name="SND_Player_Join_4" type="AudioStreamPlayer" parent="SoundEffects/PlayerJoined"]
 stream = ExtResource("13_l1fx4")
-volume_db = -4.0
+volume_db = -15.0
 bus = &"SFX"
 
 [connection signal="body_exited" from="InGame" to="." method="_on_in_game_body_exited"]
