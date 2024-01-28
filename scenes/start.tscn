@@ -141,6 +141,7 @@ texture = ExtResource("1_lovnt")
 expand_mode = 1
 
 [node name="Version" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
