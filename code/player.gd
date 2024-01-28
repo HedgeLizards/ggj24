@@ -1,10 +1,17 @@
 extends RigidBody3D
 
 const jump: float = 30
+var last_velocity := Vector3.ZERO
 
 func is_on_floor():
 	return %FloorCheck.get_overlapping_bodies().any(func(body): return body is StaticBody3D)
 
+func _physics_process(delta):
+	var accel = linear_velocity.distance_to(last_velocity) / delta
+	if accel > 600:
+		# Bounce Sound Effect
+		$"../SoundEffects/SND_Player_Ground_Bounce".play();
+	last_velocity = linear_velocity
 
 func _integrate_forces(_state):
 	var id = get_parent().player_id
@@ -35,9 +42,7 @@ func _on_body_entered(body):
 		
 		# Bounce Sound Effect
 		$"../SoundEffects/SND_Player_Player_Bounce".play();
-	else:
-		# Bounce Sound Effect
-		$"../SoundEffects/SND_Player_Ground_Bounce".play();
+	
 
 func is_player():
 	return true

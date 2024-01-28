@@ -46,6 +46,7 @@ func start_game():
 		level_to_pick = levels.duplicate()
 		level_to_pick.shuffle()
 	var level = level_to_pick.pop_back().instantiate()
+	
 	open_level(level)
 	countdown = 3
 	_on_start_timer_timeout()
