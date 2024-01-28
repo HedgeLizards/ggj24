@@ -140,6 +140,13 @@ func _stop_round():
 			if input_player != null && input_player.device >= 0 && !connected_devices.has(input_player.device):
 				_on_lobby_player_leave(player)
 		start_lobby.call_deferred()
+		
+		if $MusicManager/MUS_Game_Time_Loop.is_playing():
+			$MusicManager/MUS_Game_Time_Loop.stop();
+			$MusicManager/MUS_Lobby.play();
+		elif $MusicManager/MUS_Transition_1.is_playing():
+			$MusicManager/MUS_Transition_1.stop();
+			$MusicManager/MUS_Lobby.play();
 
 func _on_start_timer_timeout():
 	if countdown > 0:
