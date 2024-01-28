@@ -1,14 +1,10 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bsjlu5an5y4ng"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7po8"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
-disable_receive_shadows = true
+[ext_resource type="Material" uid="uid://d1jp5o8ffklrx" path="res://art/Textures/outline.tres" id="1_vfksr"]
 
 [resource]
 render_priority = -1
-next_pass = SubResource("StandardMaterial3D_r7po8")
+next_pass = ExtResource("1_vfksr")
 no_depth_test = true
 shading_mode = 0
 albedo_color = Color(0.815686, 0.494118, 0.164706, 1)
