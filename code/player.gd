@@ -51,6 +51,7 @@ func is_player():
 func grow():
 	for child in get_children():
 		child.scale *= 1.5
-	%FloorCheck.position.y *= 1.5
+	%FloorCheck.position *= 1.5
+	%FloorCheck.scale *= 1.5
 	mass += 1
 	

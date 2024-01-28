@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlfiqw4ij2u4w"]
+[gd_scene load_steps=6 format=3 uid="uid://dlfiqw4ij2u4w"]
 
-[ext_resource type="Texture2D" uid="uid://221gafy8vxjb" path="res://art/Powerups/sprite_foodbowl.png" id="1_2xxgx"]
 [ext_resource type="Script" path="res://code/food.gd" id="1_osy1y"]
+[ext_resource type="Texture2D" uid="uid://oege34r7wvgu" path="res://art/Powerups/food_box.png" id="2_1i7g7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mec8a"]
 size = Vector3(5, 8, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqaod"]
+albedo_texture = ExtResource("2_1i7g7")
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uh6ta"]
+material = SubResource("StandardMaterial3D_wqaod")
+size = Vector3(6, 8, 6)
 
 [node name="Food" type="Area3D"]
 script = ExtResource("1_osy1y")
@@ -12,8 +20,7 @@ script = ExtResource("1_osy1y")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_mec8a")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
-texture = ExtResource("1_2xxgx")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_uh6ta")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

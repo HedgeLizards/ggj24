@@ -17,8 +17,9 @@ bounce = 0.3
 [sub_resource type="SphereShape3D" id="SphereShape3D_l615a"]
 radius = 2.5
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pgwul"]
-size = Vector3(3, 3, 3)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tdteo"]
+height = 3.0
+radius = 2.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_va4s6"]
 transparency = 1
@@ -75,7 +76,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Base/FloorCheck"]
-shape = SubResource("BoxShape3D_pgwul")
+shape = SubResource("CylinderShape3D_tdteo")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
