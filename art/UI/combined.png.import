@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baqqy30u2fuwm"
-path="res://.godot/imported/sprite_chunky_cat.png-5138a11e28c647db82c35527b30fb9ec.ctex"
+uid="uid://dhpo43jay8f8"
+path="res://.godot/imported/combined.png-8a451f7c486bd9c1fd28d924dd9836d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/sprite_chunky_cat.png"
-dest_files=["res://.godot/imported/sprite_chunky_cat.png-5138a11e28c647db82c35527b30fb9ec.ctex"]
+source_file="res://art/UI/combined.png"
+dest_files=["res://.godot/imported/combined.png-8a451f7c486bd9c1fd28d924dd9836d5.ctex"]
 
 [params]
 
