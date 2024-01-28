@@ -11,6 +11,7 @@ var Lobby = preload("res://scenes/levels/lobby.tscn")
 var Splash = preload("res://scenes/Splash.tscn")
 
 var levels = [
+	preload("res://scenes/levels/feed_me.tscn"),
 	preload("res://scenes/levels/cataloguenip.tscn"),
 	preload("res://scenes/levels/Crossover.tscn"),
 	preload("res://scenes/levels/disco.tscn"),

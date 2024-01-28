@@ -4,48 +4,47 @@
 [ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="2_uy337"]
 [ext_resource type="PackedScene" uid="uid://dlfiqw4ij2u4w" path="res://scenes/toybox/food.tscn" id="3_vnlwf"]
 
-[node name="DontFall" type="Node3D"]
+[node name="FeedMe" type="Node3D"]
 
 [node name="Spawns" type="Node3D" parent="."]
 
 [node name="Node3D" type="Node3D" parent="Spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 5, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 5, 0)
 
 [node name="Node3D2" type="Node3D" parent="Spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 5, -30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, 0)
 
 [node name="Node3D3" type="Node3D" parent="Spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 30)
 
 [node name="Node3D4" type="Node3D" parent="Spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, -30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -30)
 
 [node name="Ground3" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32)
 
 [node name="Ground5" parent="." instance=ExtResource("1_e1vwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0)
 
 [node name="Ground6" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 0, 16)
 
 [node name="Ground7" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 48)
 
 [node name="Ground8" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 0, -16)
 
 [node name="Ground9" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 0, -32)
 
 [node name="Ground10" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32)
 
 [node name="Ground11" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
 
 [node name="Ground12" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 0, 32)
 
 [node name="Ground14" parent="." instance=ExtResource("1_e1vwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32)
@@ -54,30 +53,63 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0)
 
 [node name="Ground17" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, -16)
 
 [node name="Ground18" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
 
 [node name="Ground19" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
 
 [node name="Ground20" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 16)
 
 [node name="Ground21" parent="." instance=ExtResource("1_e1vwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
 
 [node name="Water" parent="." instance=ExtResource("2_uy337")]
 
 [node name="Food" parent="." instance=ExtResource("3_vnlwf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 8, 15)
 
 [node name="Food2" parent="." instance=ExtResource("3_vnlwf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 8, -15)
 
 [node name="Food3" parent="." instance=ExtResource("3_vnlwf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 8, -15)
 
 [node name="Food5" parent="." instance=ExtResource("3_vnlwf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 8, 15)
+
+[node name="Ground13" parent="." instance=ExtResource("1_e1vwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 32)
+
+[node name="Ground15" parent="." instance=ExtResource("1_e1vwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 32)
+
+[node name="Ground22" parent="." instance=ExtResource("1_e1vwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 48)
+
+[node name="Ground23" parent="." instance=ExtResource("1_e1vwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 32)
+
+[node name="Ground24" parent="." instance=ExtResource("1_e1vwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 48)
+
+[node name="Ground25" parent="." instance=ExtResource("1_e1vwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 48)
+
+[node name="Ground26" parent="." instance=ExtResource("1_e1vwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -48)
+
+[node name="Ground27" parent="." instance=ExtResource("1_e1vwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -48)
+
+[node name="Ground28" parent="." instance=ExtResource("1_e1vwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, -32)
+
+[node name="Ground29" parent="." instance=ExtResource("1_e1vwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -48)
+
+[node name="Ground30" parent="." instance=ExtResource("1_e1vwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -48)
