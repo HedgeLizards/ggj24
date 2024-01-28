@@ -1,7 +1,7 @@
 extends Node
 
 func _on_mus_lobby_finished():
-	if get_parent().state == get_parent().State.STARTING:
+	if get_parent().state == get_parent().State.STARTING or get_parent().state == get_parent().State.PLAYING:
 		$MUS_Transition_1.play();
 	else:
 		$MUS_Lobby.play();
