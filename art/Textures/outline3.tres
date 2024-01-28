@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bba1tub0ektt4"]
+
+[ext_resource type="Material" uid="uid://d1jp5o8ffklrx" path="res://art/Textures/outline.tres" id="1_inytm"]
+
+[resource]
+render_priority = -1
+next_pass = ExtResource("1_inytm")
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0.588235, 0.721569, 1)
+disable_receive_shadows = true

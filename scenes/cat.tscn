@@ -21,6 +21,7 @@ radius = 2.5
 size = Vector3(3, 2, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_va4s6"]
+transparency = 1
 shading_mode = 0
 
 [sub_resource type="SphereMesh" id="SphereMesh_hx12w"]

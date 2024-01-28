@@ -2,12 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dgm6a1a6y5gox" path="res://scenes/toybox/ball.tscn" id="2_1j410"]
 [ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="2_skt0w"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ysau"]
-albedo_color = Color(0.513115, 0.533138, 0.216995, 1)
+[ext_resource type="Material" uid="uid://dganwa628yu2f" path="res://art/Textures/Levelcolors/ground.tres" id="2_tdo4c"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_f4gxv"]
-material = SubResource("StandardMaterial3D_8ysau")
+material = ExtResource("2_tdo4c")
 top_radius = 40.0
 bottom_radius = 100.0
 height = 100.0
@@ -37,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 24.5664)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="Water2" parent="." instance=ExtResource("2_skt0w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0787735, 0.264809, -0.107727)
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -43.4108, 0)
