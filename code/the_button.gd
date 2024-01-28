@@ -7,6 +7,11 @@ func _ready():
 	set_physics_process(false)
 
 func _on_button_body_entered(_body):
+	if is_physics_processing():
+		return
+	
+	$FloatingIsland/Button/AudioStreamPlayer.play()
+	
 	set_physics_process(true)
 
 func _physics_process(delta):

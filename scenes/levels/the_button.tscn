@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://peor254enr74"]
+[gd_scene load_steps=16 format=3 uid="uid://peor254enr74"]
 
 [ext_resource type="Material" uid="uid://dganwa628yu2f" path="res://art/Textures/Levelcolors/ground.tres" id="1_ike0j"]
 [ext_resource type="Script" path="res://code/the_button.gd" id="1_ojl26"]
 [ext_resource type="Material" uid="uid://df7bxhyrup31q" path="res://art/Textures/Levelcolors/wood.tres" id="2_c3d2h"]
+[ext_resource type="AudioStream" uid="uid://ys7a4lw1vmd2" path="res://audio/SND_Level_Button_Click.wav" id="4_d0xfy"]
 [ext_resource type="Material" uid="uid://csf5w5n6wn7f" path="res://art/Textures/Levelcolors/wall.tres" id="4_twsoo"]
 [ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="5_4c2kg"]
 
@@ -14,11 +15,11 @@ material = ExtResource("1_ike0j")
 size = Vector3(80, 8, 80)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7c8u1"]
-size = Vector3(8, 2, 8)
+size = Vector3(12, 2, 12)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0gvex"]
 material = ExtResource("2_c3d2h")
-size = Vector3(8, 2, 8)
+size = Vector3(12, 2, 12)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6jawx"]
 height = 1.0
@@ -86,6 +87,9 @@ shape = SubResource("CylinderShape3D_6jawx")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FloatingIsland/Button"]
 mesh = SubResource("CylinderMesh_73w2y")
 skeleton = NodePath("../..")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FloatingIsland/Button"]
+stream = ExtResource("4_d0xfy")
 
 [node name="Wall" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 4, 0)
