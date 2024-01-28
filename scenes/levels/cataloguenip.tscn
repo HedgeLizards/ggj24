@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="1_11wr1"]
 [ext_resource type="PackedScene" uid="uid://bulwrisqfjkqe" path="res://scenes/ground.tscn" id="2_lnk1m"]
 [ext_resource type="PackedScene" uid="uid://cnv26p3l18vqd" path="res://scenes/wall.tscn" id="3_tc1am"]
-[ext_resource type="PackedScene" uid="uid://dvahmc5hdqeft" path="res://scenes/pillar.tscn" id="4_62i7i"]
-[ext_resource type="PackedScene" uid="uid://dev1u6y486jjk" path="res://scenes/catnip_box.tscn" id="5_xx4a7"]
+[ext_resource type="PackedScene" uid="uid://dvahmc5hdqeft" path="res://scenes/pillar.tscn" id="4_tut67"]
+[ext_resource type="PackedScene" uid="uid://dev1u6y486jjk" path="res://scenes/toybox/catnip_box.tscn" id="5_xo1tm"]
 
 [node name="Cataloguenip" type="Node3D"]
 
@@ -82,7 +82,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 48, 0,
 [node name="Wall4" parent="." instance=ExtResource("3_tc1am")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -48, 0, 0)
 
-[node name="Pillar" parent="." instance=ExtResource("4_62i7i")]
+[node name="Pillar" parent="." instance=ExtResource("4_tut67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 16)
 
 [node name="Spawns" type="Node3D" parent="."]
@@ -99,23 +99,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, 20)
 [node name="Node3D4" type="Node3D" parent="Spawns"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 5, -30)
 
-[node name="CatnipBox" parent="." instance=ExtResource("5_xx4a7")]
+[node name="CatnipBox" parent="." instance=ExtResource("5_xo1tm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 19, 16)
 
-[node name="Pillar2" parent="." instance=ExtResource("4_62i7i")]
+[node name="Pillar2" parent="." instance=ExtResource("4_tut67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -16)
 
-[node name="Pillar3" parent="." instance=ExtResource("4_62i7i")]
+[node name="Pillar3" parent="." instance=ExtResource("4_tut67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
 
-[node name="Pillar4" parent="." instance=ExtResource("4_62i7i")]
+[node name="Pillar4" parent="." instance=ExtResource("4_tut67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -16)
 
-[node name="CatnipBox2" parent="." instance=ExtResource("5_xx4a7")]
+[node name="CatnipBox2" parent="." instance=ExtResource("5_xo1tm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 19, -16)
 
-[node name="CatnipBox3" parent="." instance=ExtResource("5_xx4a7")]
+[node name="CatnipBox3" parent="." instance=ExtResource("5_xo1tm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 19, 16)
 
-[node name="CatnipBox4" parent="." instance=ExtResource("5_xx4a7")]
+[node name="CatnipBox4" parent="." instance=ExtResource("5_xo1tm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 19, -16)

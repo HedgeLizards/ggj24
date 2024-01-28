@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://do2h6dlhtci4t"]
+[gd_scene load_steps=19 format=3 uid="uid://do2h6dlhtci4t"]
 
 [ext_resource type="Script" path="res://code/main.gd" id="1_i2n6y"]
 [ext_resource type="PackedScene" uid="uid://caltol35o78ta" path="res://scenes/ui.tscn" id="2_jwe8d"]
@@ -9,6 +9,12 @@
 [ext_resource type="Script" path="res://code/level.gd" id="4_rfxhx"]
 [ext_resource type="AudioStream" uid="uid://bsxeoj87ymnbx" path="res://audio/MUS_Transition_1.ogg" id="6_eoo0v"]
 [ext_resource type="AudioStream" uid="uid://wd3fixolg18n" path="res://audio/MUS_Game_Time_Loop.ogg" id="7_hppy8"]
+[ext_resource type="AudioStream" uid="uid://55xbahac0w1r" path="res://audio/SND_Player_Joined.wav" id="10_np52n"]
+[ext_resource type="AudioStream" uid="uid://brxulh28mwua6" path="res://audio/SND_Player_Join_1.wav" id="10_txgcc"]
+[ext_resource type="AudioStream" uid="uid://dg4028r3x3bq6" path="res://audio/SND_Player_Left.wav" id="11_aq3gh"]
+[ext_resource type="AudioStream" uid="uid://bx2tfo025ds3a" path="res://audio/SND_Player_Join_2.wav" id="11_kowjq"]
+[ext_resource type="AudioStream" uid="uid://diw77w2sbot7x" path="res://audio/SND_Player_Join_3.wav" id="12_ox681"]
+[ext_resource type="AudioStream" uid="uid://clyjslbmtkglu" path="res://audio/SND_Player_Join_4.wav" id="13_l1fx4"]
 
 [sub_resource type="Environment" id="Environment_n3do1"]
 background_mode = 1
@@ -33,6 +39,12 @@ adjustment_saturation = 1.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_73ekn"]
 size = Vector3(256, 256, 256)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y1kin"]
+random_pitch = 1.25
+streams_count = 1
+stream_0/stream = ExtResource("10_np52n")
+stream_0/weight = 1.0
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_i2n6y")
@@ -97,6 +109,40 @@ bus = &"Music"
 [node name="MUS_Game_Time_Loop" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("7_hppy8")
 bus = &"Music"
+
+[node name="SoundEffects" type="Node" parent="."]
+
+[node name="SND_Player_Joined" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = SubResource("AudioStreamRandomizer_y1kin")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="SND_Player_Left" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("11_aq3gh")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="PlayerJoined" type="Node" parent="SoundEffects"]
+
+[node name="SND_Player_Join_1" type="AudioStreamPlayer" parent="SoundEffects/PlayerJoined"]
+stream = ExtResource("10_txgcc")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="SND_Player_Join_2" type="AudioStreamPlayer" parent="SoundEffects/PlayerJoined"]
+stream = ExtResource("11_kowjq")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="SND_Player_Join_3" type="AudioStreamPlayer" parent="SoundEffects/PlayerJoined"]
+stream = ExtResource("12_ox681")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="SND_Player_Join_4" type="AudioStreamPlayer" parent="SoundEffects/PlayerJoined"]
+stream = ExtResource("13_l1fx4")
+volume_db = -4.0
+bus = &"SFX"
 
 [connection signal="body_exited" from="InGame" to="." method="_on_in_game_body_exited"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

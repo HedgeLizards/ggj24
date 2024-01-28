@@ -14,7 +14,8 @@ var levels = [
 	preload("res://scenes/levels/dont_fall.tscn"),
 	preload("res://scenes/levels/disco.tscn"),
 	preload("res://scenes/levels/pushover.tscn"),
-	preload("res://scenes/levels/cataloguenip.tscn")
+	preload("res://scenes/levels/cataloguenip.tscn"),
+	#preload("res://scenes/levels/theball.tscn")
 ]
 
 func _ready():
@@ -59,6 +60,12 @@ func _on_player_joined(id):
 	#$Level/Lobby/Spawns.get_children().pick_random()
 	cat.go_to($Level/Lobby/Spawns.get_children().pick_random().position)
 	update_join_notice()
+	
+	# Sound Effects
+	$SoundEffects/SND_Player_Joined.play();
+	$SoundEffects/PlayerJoined.get_child(id).play();
+	
+	
 
 func _on_in_game_body_exited(body):
 	if state == State.LOBBY:
@@ -98,6 +105,7 @@ func _on_lobby_player_leave(player):
 	player.queue_free()
 	update_join_notice()
 	_on_lobby_player_ready.call_deferred(null)
+	$SoundEffects/SND_Player_Left.play();
 
 func start_lobby():
 	InputHandler.can_add_players = true
