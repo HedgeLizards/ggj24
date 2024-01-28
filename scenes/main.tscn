@@ -126,6 +126,7 @@ bus = &"SFX"
 [node name="SND_Player_Knocked_Off" type="AudioStreamPlayer" parent="SoundEffects"]
 stream = ExtResource("12_1osgu")
 volume_db = -12.0
+bus = &"SFX"
 
 [node name="PlayerJoined" type="Node" parent="SoundEffects"]
 
