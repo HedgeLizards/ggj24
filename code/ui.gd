@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const COLORS = [Color.ORANGE, Color.BLACK, Color.GRAY, Color.WHITE]
+const COLORS = [Color8(208, 126, 42), Color8(18, 18, 18), Color8(168, 168, 168), Color.WHITE]
 
 @onready var players = [$Player1, $Player2, $Player3, $Player4]
 
