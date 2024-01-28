@@ -25,4 +25,6 @@ func go_to(to: Vector3):
 	%Body.angular_velocity = Vector3(0, 0, 0)
 	for child in %Body.get_children():
 		child.scale = Vector3(1, 1, 1)
+	$Base/FloorCheck.position.y = -2
 	%Body.mass = 3.5
+	%Body.p.ayer_size = 0

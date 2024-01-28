@@ -2,6 +2,7 @@ extends RigidBody3D
 
 const jump: float = 42
 var last_velocity := Vector3.ZERO
+var player_size: int = 0
 
 func is_on_floor():
 	return %FloorCheck.get_overlapping_bodies().any(func(body): return body is StaticBody3D)
@@ -20,7 +21,7 @@ func _integrate_forces(_state):
 	if current_speed.length() > 1:
 		current_speed = current_speed.normalized()
 	var movement: Vector2 = InputHandler.movement_vector(id)
-	movement *= movement.distance_to(current_speed) * $/root/Main/Level.accelleration()
+	movement *= movement.distance_to(current_speed) * $/root/Main/Level.accelleration() * (1+player_size / 3)
 	#if movement.x < 0 && current_speed.x < -max_speed || movement.x > 0 && current_speed.x > max_speed:
 		#movement.x = 0
 	#if movement.y < 0 && current_speed.x < -max_speed || movement.y > 0 && current_speed.y > max_speed:
@@ -50,5 +51,6 @@ func is_player():
 func grow():
 	for child in get_children():
 		child.scale *= 1.5
+	%FloorCheck.position.y *= 1.5
 	mass += 1
 	

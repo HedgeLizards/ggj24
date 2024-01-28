@@ -20,9 +20,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, 30)
 [node name="Node3D4" type="Node3D" parent="Spawns"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, -30)
 
-[node name="Ground" parent="." instance=ExtResource("1_fnj0x")]
-transform = Transform3D(0.707107, -0.241845, -0.664463, 0, 0.939693, -0.34202, 0.707107, 0.241845, 0.664463, -20, 2.9, 20)
-
 [node name="Ground2" parent="." instance=ExtResource("1_fnj0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
 
@@ -86,4 +83,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -16)
 [node name="Water" parent="." instance=ExtResource("2_kriq8")]
 
 [node name="Food" parent="." instance=ExtResource("3_l2epx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="Food2" parent="." instance=ExtResource("3_l2epx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 8, 16)
+
+[node name="Food3" parent="." instance=ExtResource("3_l2epx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 8, -16)
+
+[node name="Food4" parent="." instance=ExtResource("3_l2epx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 8, 16)
+
+[node name="Food5" parent="." instance=ExtResource("3_l2epx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 8, -16)

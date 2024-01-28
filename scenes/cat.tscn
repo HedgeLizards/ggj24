@@ -18,7 +18,7 @@ bounce = 0.3
 radius = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgwul"]
-size = Vector3(3, 2, 3)
+size = Vector3(3, 3, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_va4s6"]
 transparency = 1
