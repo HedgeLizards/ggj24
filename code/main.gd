@@ -17,6 +17,7 @@ var levels = [
 	preload("res://scenes/levels/cataloguenip.tscn"),
 	#preload("res://scenes/levels/theball.tscn")
 ]
+var level_to_pick = []
 
 func _ready():
 	InputHandler.player_joined.connect(_on_player_joined)
@@ -41,7 +42,10 @@ func start_game():
 	InputHandler.can_add_players = false
 	InputHandler.can_move_players = false
 	state = State.STARTING
-	var level = levels.pick_random().instantiate()
+	if level_to_pick.is_empty():
+		level_to_pick = levels.duplicate()
+		level_to_pick.shuffle()
+	var level = level_to_pick.pop_back().instantiate()
 	open_level(level)
 	countdown = 3
 	_on_start_timer_timeout()
