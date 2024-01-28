@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dc78ljuc7jaum" path="res://art/Env/diamonds.png" id="1_ix3ci"]
 
 [resource]
+diffuse_mode = 3
 specular_mode = 1
 albedo_texture = ExtResource("1_ix3ci")
 uv1_scale = Vector3(0.24, 0.24, 0.24)

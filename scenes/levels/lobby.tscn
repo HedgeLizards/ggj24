@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cie6lckxrpqvu"]
+[gd_scene load_steps=11 format=3 uid="uid://cie6lckxrpqvu"]
 
 [ext_resource type="PackedScene" uid="uid://bulwrisqfjkqe" path="res://scenes/ground.tscn" id="1_fuhqo"]
 [ext_resource type="Script" path="res://code/lobby.gd" id="1_uqge3"]
 [ext_resource type="QuadMesh" uid="uid://d3mtsfy8brl2c" path="res://art/Textures/Levelcolors/select.tres" id="2_f7twx"]
 [ext_resource type="PackedScene" uid="uid://cnv26p3l18vqd" path="res://scenes/wall.tscn" id="2_smbfl"]
 [ext_resource type="FontFile" uid="uid://d322quqpvquoi" path="res://fonts/KiddosyfreeRegular-GOEag.otf" id="3_bxpwo"]
+[ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="4_g76ou"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fy3gt"]
 size = Vector3(32, 2, 32)
@@ -13,6 +14,7 @@ size = Vector3(32, 2, 32)
 size = Vector3(32, 1, 32)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypoh0"]
+shading_mode = 0
 albedo_color = Color(0.921569, 0, 0.2, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_pdgjw"]
@@ -141,6 +143,10 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 32, 0, -32)
 
 [node name="Ground8" parent="." instance=ExtResource("1_fuhqo")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32, 0, 32)
+
+[node name="Water" parent="." instance=ExtResource("4_g76ou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.39093, -32)
+skeleton = NodePath("../Leave/StaticBody3D/MeshInstance3D")
 
 [connection signal="body_entered" from="Ready/ReadyArea" to="." method="_on_ready_area_body_entered"]
 [connection signal="body_entered" from="Leave/LeaveArea" to="." method="_on_leave_area_body_entered"]

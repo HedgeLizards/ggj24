@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://do2h6dlhtci4t"]
+[gd_scene load_steps=23 format=3 uid="uid://do2h6dlhtci4t"]
 
 [ext_resource type="Script" path="res://code/main.gd" id="1_i2n6y"]
 [ext_resource type="PackedScene" uid="uid://caltol35o78ta" path="res://scenes/ui.tscn" id="2_jwe8d"]
@@ -18,14 +18,23 @@
 [ext_resource type="AudioStream" uid="uid://drntpujg25if5" path="res://audio/SND_Player_Zoomies.wav" id="13_cqi71"]
 [ext_resource type="AudioStream" uid="uid://clyjslbmtkglu" path="res://audio/SND_Player_Join_4.wav" id="13_l1fx4"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xaxcd"]
+sky_top_color = Color(0, 0.494118, 0.705882, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Sky" id="Sky_0nv35"]
+sky_material = SubResource("ProceduralSkyMaterial_xaxcd")
+
 [sub_resource type="Environment" id="Environment_n3do1"]
 background_mode = 1
-background_color = Color(0.368627, 0.615686, 0.639216, 1)
-ambient_light_color = Color(0.760784, 0.760784, 0.760784, 1)
+background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_0nv35")
 ambient_light_energy = 0.0
 ssao_enabled = true
-ssao_radius = 2.26
-ssao_intensity = 6.88
+ssao_radius = 16.0
+ssao_intensity = 4.0
+ssao_power = 1.21838
+ssao_detail = 1.0
 ssil_enabled = true
 ssil_radius = 7.52
 glow_enabled = true
@@ -36,7 +45,7 @@ fog_density = 0.4047
 volumetric_fog_density = 1.0
 volumetric_fog_length = 10.0
 adjustment_enabled = true
-adjustment_contrast = 1.2
+adjustment_contrast = 1.1
 adjustment_saturation = 1.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_73ekn"]
@@ -61,13 +70,14 @@ unique_name_in_owner = true
 script = ExtResource("3_g1m57")
 
 [node name="Camera3D" type="Camera3D" parent="CameraBase"]
-transform = Transform3D(1, -5.95416e-16, 2.46629e-16, 2.4663e-16, 0.707107, 0.707107, -5.95416e-16, -0.707107, 0.707107, 0, 35, 50)
+transform = Transform3D(1, -6.64895e-16, 1.47404e-16, 1.47404e-16, 0.422618, 0.906308, -6.64895e-16, -0.906308, 0.422618, 2.08165e-12, 53.55, 34.44)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n3do1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.18474, 0.982787, 0, -0.982787, -0.18474, 0, 13.0844, 0)
+visible = false
 light_energy = 1.081
 shadow_enabled = true
 
