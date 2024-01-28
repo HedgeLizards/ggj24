@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpru8qqcxur31"]
+[gd_scene load_steps=18 format=3 uid="uid://cpru8qqcxur31"]
 
 [ext_resource type="Script" path="res://code/player.gd" id="1_4x5th"]
 [ext_resource type="Script" path="res://code/player_all.gd" id="1_fftc2"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://tsd10fsgslme" path="res://audio/SND_Player_Ground_Bounce_2.wav" id="6_alc0n"]
 [ext_resource type="AudioStream" uid="uid://c0kkah1o2g2n6" path="res://audio/SND_Player_Ground_Bounce_3.wav" id="7_nh2gt"]
 [ext_resource type="AudioStream" uid="uid://b4ks3lltvq1qo" path="res://audio/SND_Player_Ground_Bounce_4.wav" id="8_f81fe"]
+[ext_resource type="AudioStream" uid="uid://bt3m36j1740ud" path="res://audio/SND_Player_Knocked_Off.wav" id="10_h25bi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e8e0b"]
 rough = true
@@ -31,13 +32,13 @@ radial_segments = 10
 rings = 5
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o34oj"]
-random_pitch = 1.15
+random_pitch = 1.25
 streams_count = 1
 stream_0/stream = ExtResource("5_01cao")
 stream_0/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lhljf"]
-random_pitch = 1.15
+random_pitch = 1.25
 streams_count = 4
 stream_0/stream = ExtResource("5_dp1n1")
 stream_0/weight = 1.0
@@ -93,6 +94,10 @@ bus = &"SFX"
 
 [node name="SND_Player_Ground_Bounce" type="AudioStreamPlayer3D" parent="SoundEffects"]
 stream = SubResource("AudioStreamRandomizer_lhljf")
+bus = &"SFX"
+
+[node name="SND_Player_Knocked_Off" type="AudioStreamPlayer3D" parent="SoundEffects"]
+stream = ExtResource("10_h25bi")
 bus = &"SFX"
 
 [connection signal="body_entered" from="Body" to="Body" method="_on_body_entered"]
