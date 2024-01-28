@@ -11,12 +11,15 @@ var Lobby = preload("res://scenes/levels/lobby.tscn")
 var Splash = preload("res://scenes/Splash.tscn")
 
 var levels = [
+	preload("res://scenes/levels/cataloguenip.tscn"),
+	preload("res://scenes/levels/Crossover.tscn"),
+	preload("res://scenes/levels/disco.tscn"),
 	preload("res://scenes/levels/dont_fall.tscn"),
-	#preload("res://scenes/levels/disco.tscn"),
-	#preload("res://scenes/levels/pushover.tscn"),
-	#preload("res://scenes/levels/cataloguenip.tscn"),
-	#preload("res://scenes/levels/TheBall.tscn"),
-	#preload("res://scenes/levels/the_button.tscn"),
+	preload("res://scenes/levels/funnel.tscn"),
+	preload("res://scenes/levels/pushover.tscn"),
+	preload("res://scenes/levels/skate.tscn"),
+	preload("res://scenes/levels/TheBall.tscn"),
+	preload("res://scenes/levels/the_button.tscn"),
 ]
 var level_to_pick = []
 
@@ -140,6 +143,13 @@ func _stop_round():
 			if input_player != null && input_player.device >= 0 && !connected_devices.has(input_player.device):
 				_on_lobby_player_leave(player)
 		start_lobby.call_deferred()
+		
+		if $MusicManager/MUS_Game_Time_Loop.is_playing():
+			$MusicManager/MUS_Game_Time_Loop.stop();
+			$MusicManager/MUS_Lobby.play();
+		elif $MusicManager/MUS_Transition_1.is_playing():
+			$MusicManager/MUS_Transition_1.stop();
+			$MusicManager/MUS_Lobby.play();
 
 func _on_start_timer_timeout():
 	if countdown > 0:

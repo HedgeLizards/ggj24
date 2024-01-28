@@ -28,4 +28,4 @@ func go_to(to: Vector3):
 	$Base/FloorCheck.position = Vector3(0, -2, 0)
 	$Base/FloorCheck.scale = Vector3(1, 1, 1)
 	%Body.mass = 3.5
-	%Body.player_size = 1
+	%Body.player_size = 0
