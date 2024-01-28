@@ -18,7 +18,7 @@ func _integrate_forces(_state):
 	if is_on_floor() && InputHandler.jump_pressed(id) && linear_velocity.y < jump:
 		linear_velocity.y = jump
 		
-		# Sound Effect
+		# Jump Sound Effect
 		
 	
 	apply_force(Vector3(movement.x, 0, movement.y))
@@ -30,10 +30,10 @@ func _on_body_entered(body):
 		InputHandler.vibrate(get_parent().player_id)
 		apply_force(-(body.global_position - global_position).normalized()* bounce * body.linear_velocity.length())
 		
-		# Sound Effect
+		# Bounce Sound Effect
 		$"../SoundEffects/SND_Player_Player_Bounce".play();
 	else:
-		# Sound Effect
+		# Bounce Sound Effect
 		$"../SoundEffects/SND_Player_Ground_Bounce".play();
 
 func is_player():
