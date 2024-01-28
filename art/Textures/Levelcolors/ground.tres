@@ -1,5 +1,10 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://dganwa628yu2f"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dganwa628yu2f"]
+
+[ext_resource type="Texture2D" uid="uid://dnvy6dri72nf3" path="res://art/Env/grassgrid.png" id="1_ue42p"]
 
 [resource]
 specular_mode = 1
-albedo_color = Color(0.513115, 0.533138, 0.216995, 1)
+albedo_texture = ExtResource("1_ue42p")
+uv1_scale = Vector3(0.12, 0.12, 0.12)
+uv1_triplanar = true
+uv2_offset = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)

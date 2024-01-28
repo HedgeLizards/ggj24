@@ -1,5 +1,9 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://csf5w5n6wn7f"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://csf5w5n6wn7f"]
+
+[ext_resource type="Texture2D" uid="uid://dc78ljuc7jaum" path="res://art/Env/diamonds.png" id="1_ix3ci"]
 
 [resource]
 specular_mode = 1
-albedo_color = Color(0.690196, 0.309804, 0.309804, 1)
+albedo_texture = ExtResource("1_ix3ci")
+uv1_scale = Vector3(0.24, 0.24, 0.24)
+uv1_triplanar = true

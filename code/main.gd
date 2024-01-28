@@ -12,9 +12,9 @@ var Splash = preload("res://scenes/Splash.tscn")
 
 var levels = [
 	preload("res://scenes/levels/dont_fall.tscn"),
-	#preload("res://scenes/levels/disco.tscn"),
-	#preload("res://scenes/levels/pushover.tscn"),
-	#preload("res://scenes/levels/cataloguenip.tscn"),
+	preload("res://scenes/levels/disco.tscn"),
+	preload("res://scenes/levels/pushover.tscn"),
+	preload("res://scenes/levels/cataloguenip.tscn"),
 	#preload("res://scenes/levels/theball.tscn")
 ]
 
@@ -81,6 +81,9 @@ func _on_in_game_body_exited(body):
 	
 	$UI.update_player_dry(body.get_parent().player_id, false)
 	
+	# Splash Sound Effect
+	$SoundEffects/SND_Player_Knocked_Off.play();
+	
 	var dry_players = []
 	
 	for player in %Players.get_children():
@@ -92,11 +95,9 @@ func _on_in_game_body_exited(body):
 			dry_players.push_back(player)
 	
 	if dry_players.size() == 1:
-		$UI.show_notice('%s WINS' % $UI.players[dry_players[0].player_id].get_node('Name').text, 2.5)
+		$UI.show_notice('%s wins!' % $UI.players[dry_players[0].player_id].get_node('Name').text, 2.5)
 		
 		$EndTimer.start()
-
-
 
 func _on_lobby_player_leave(player):
 	%Players.remove_child(player)
@@ -142,7 +143,7 @@ func _on_start_timer_timeout():
 	else:
 		InputHandler.can_move_players = true
 		state = State.PLAYING
-		$UI.show_notice("LET'S ROLL", 0.5)
+		$UI.show_notice("Let's roll!", 0.5)
 		if $Level.get_child(0).has_method('enable'):
 			$Level.get_child(0).enable()
 
