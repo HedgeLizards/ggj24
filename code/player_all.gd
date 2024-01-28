@@ -27,4 +27,4 @@ func go_to(to: Vector3):
 		child.scale = Vector3(1, 1, 1)
 	$Base/FloorCheck.position.y = -2
 	%Body.mass = 3.5
-	%Body.p.ayer_size = 0
+	%Body.player_size = 0
