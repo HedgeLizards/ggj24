@@ -22,7 +22,6 @@ func extra_bounce():
 	if current_level().has_method("is_lobby"):
 		return 0
 	else:
-		print(superbounce + 30 * time)
 		return superbounce + 30 * time
 
 func accelleration():
