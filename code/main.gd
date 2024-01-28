@@ -81,6 +81,9 @@ func _on_in_game_body_exited(body):
 	
 	$UI.update_player_dry(body.get_parent().player_id, false)
 	
+	# Splash Sound Effect
+	$SoundEffects/SND_Player_Knocked_Off.play();
+	
 	var dry_players = []
 	
 	for player in %Players.get_children():
