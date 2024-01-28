@@ -8,13 +8,16 @@ func is_on_floor():
 
 func _integrate_forces(_state):
 	var id = get_parent().player_id
-	var current_speed := Vector2(linear_velocity.x, linear_velocity.z)
-	var movement: Vector2 = InputHandler.movement_vector(id) * $/root/Main/Level.accelleration()
 	var max_speed = $/root/Main/Level.max_speed()
-	if movement.x < 0 && current_speed.x < -max_speed || movement.x > 0 && current_speed.x > max_speed:
-		movement.x = 0
-	if movement.y < 0 && current_speed.x < -max_speed || movement.y > 0 && current_speed.y > max_speed:
-		movement.y = 0
+	var current_speed: Vector2 = Vector2(linear_velocity.x, linear_velocity.z) / max_speed
+	if current_speed.length() > 1:
+		current_speed = current_speed.normalized()
+	var movement: Vector2 = InputHandler.movement_vector(id)
+	movement *= movement.distance_to(current_speed) * $/root/Main/Level.accelleration()
+	#if movement.x < 0 && current_speed.x < -max_speed || movement.x > 0 && current_speed.x > max_speed:
+		#movement.x = 0
+	#if movement.y < 0 && current_speed.x < -max_speed || movement.y > 0 && current_speed.y > max_speed:
+		#movement.y = 0
 	if is_on_floor() && InputHandler.jump_pressed(id) && linear_velocity.y < jump:
 		linear_velocity.y = jump
 		
@@ -38,3 +41,9 @@ func _on_body_entered(body):
 
 func is_player():
 	return true
+
+func grow():
+	for child in get_children():
+		child.scale *= 1.5
+	mass += 1
+	

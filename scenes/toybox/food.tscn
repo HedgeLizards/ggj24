@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlfiqw4ij2u4w"]
+
+[ext_resource type="Texture2D" uid="uid://221gafy8vxjb" path="res://art/Powerups/sprite_foodbowl.png" id="1_2xxgx"]
+[ext_resource type="Script" path="res://code/food.gd" id="1_osy1y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mec8a"]
+size = Vector3(3, 3, 3)
+
+[node name="Food" type="Area3D"]
+script = ExtResource("1_osy1y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mec8a")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_2xxgx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

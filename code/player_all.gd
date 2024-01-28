@@ -23,3 +23,6 @@ func go_to(to: Vector3):
 	%Body.global_position = to
 	%Body.linear_velocity = Vector3(0, 0, 0)
 	%Body.angular_velocity = Vector3(0, 0, 0)
+	for child in %Body.get_children():
+		child.scale = Vector3(1, 1, 1)
+	%Body.mass = 3.5
