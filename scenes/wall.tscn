@@ -3,11 +3,11 @@
 [ext_resource type="Material" uid="uid://csf5w5n6wn7f" path="res://art/Textures/Levelcolors/wall.tres" id="1_kd4p2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yv6ym"]
-size = Vector3(96, 256, 16)
+size = Vector3(96, 512, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xn01f"]
 material = ExtResource("1_kd4p2")
-size = Vector3(96, 32, 16)
+size = Vector3(112, 32, 16)
 
 [node name="Wall" type="StaticBody3D"]
 
