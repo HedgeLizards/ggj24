@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-const jump: float = 30
+const jump: float = 42
 var last_velocity := Vector3.ZERO
 
 func is_on_floor():

@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="2_pxibe"]
 [ext_resource type="Material" uid="uid://csf5w5n6wn7f" path="res://art/Textures/Levelcolors/wall.tres" id="3_p4co8"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_s2qhb"]
+size = Vector3(29, 9, 2)
+
 [sub_resource type="BoxMesh" id="BoxMesh_1abqq"]
 material = ExtResource("3_p4co8")
-size = Vector3(29, 12, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_s2qhb"]
-size = Vector3(29, 12, 2)
+size = Vector3(29, 9, 2)
 
 [node name="Pushover" type="Node3D"]
 script = ExtResource("1_5wdy3")
@@ -94,39 +94,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 16)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 32)
 
 [node name="Wall" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 7, -9)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
-mesh = SubResource("BoxMesh_1abqq")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 5.5, -9)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
 shape = SubResource("BoxShape3D_s2qhb")
 
-[node name="Wall2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 7, 39)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
 mesh = SubResource("BoxMesh_1abqq")
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 5.5, 39)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
 shape = SubResource("BoxShape3D_s2qhb")
 
-[node name="Wall3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 7, -39)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2"]
 mesh = SubResource("BoxMesh_1abqq")
+
+[node name="Wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 5.5, -39)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
 shape = SubResource("BoxShape3D_s2qhb")
 
-[node name="Wall4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 7, 9)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3"]
 mesh = SubResource("BoxMesh_1abqq")
+
+[node name="Wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 5.5, 9)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
 shape = SubResource("BoxShape3D_s2qhb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4"]
+mesh = SubResource("BoxMesh_1abqq")
 
 [node name="Water" parent="." instance=ExtResource("2_pxibe")]

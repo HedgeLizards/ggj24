@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://peor254enr74"]
+
+[ext_resource type="Material" uid="uid://dganwa628yu2f" path="res://art/Textures/Levelcolors/ground.tres" id="1_ike0j"]
+[ext_resource type="Script" path="res://code/the_button.gd" id="1_ojl26"]
+[ext_resource type="Material" uid="uid://df7bxhyrup31q" path="res://art/Textures/Levelcolors/wood.tres" id="2_c3d2h"]
+[ext_resource type="Material" uid="uid://csf5w5n6wn7f" path="res://art/Textures/Levelcolors/wall.tres" id="4_twsoo"]
+[ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="5_4c2kg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w8yp2"]
+size = Vector3(80, 8, 80)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f2lmj"]
+material = ExtResource("1_ike0j")
+size = Vector3(80, 8, 80)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7c8u1"]
+size = Vector3(8, 2, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0gvex"]
+material = ExtResource("2_c3d2h")
+size = Vector3(8, 2, 8)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6jawx"]
+height = 1.0
+radius = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frkdb"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_73w2y"]
+material = SubResource("StandardMaterial3D_frkdb")
+top_radius = 3.0
+bottom_radius = 3.0
+height = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cq5oa"]
+size = Vector3(16, 6, 80)
+
+[sub_resource type="BoxMesh" id="BoxMesh_duoh1"]
+material = ExtResource("4_twsoo")
+size = Vector3(16, 6, 80)
+
+[node name="TheButton" type="Node3D"]
+script = ExtResource("1_ojl26")
+
+[node name="Spawns" type="Node3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, -30)
+
+[node name="Node3D2" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, 30)
+
+[node name="Node3D3" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 5, -30)
+
+[node name="Node3D4" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 5, 30)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_w8yp2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_f2lmj")
+
+[node name="FloatingIsland" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloatingIsland"]
+shape = SubResource("BoxShape3D_7c8u1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FloatingIsland"]
+mesh = SubResource("BoxMesh_0gvex")
+
+[node name="Button" type="Area3D" parent="FloatingIsland"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+input_ray_pickable = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloatingIsland/Button"]
+shape = SubResource("CylinderShape3D_6jawx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FloatingIsland/Button"]
+mesh = SubResource("CylinderMesh_73w2y")
+skeleton = NodePath("../..")
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 4, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+shape = SubResource("BoxShape3D_cq5oa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+mesh = SubResource("BoxMesh_duoh1")
+
+[node name="Water" parent="." instance=ExtResource("5_4c2kg")]
+
+[connection signal="body_entered" from="FloatingIsland/Button" to="." method="_on_button_body_entered"]

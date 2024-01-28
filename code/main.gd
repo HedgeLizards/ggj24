@@ -15,7 +15,8 @@ var levels = [
 	preload("res://scenes/levels/disco.tscn"),
 	preload("res://scenes/levels/pushover.tscn"),
 	preload("res://scenes/levels/cataloguenip.tscn"),
-	#preload("res://scenes/levels/theball.tscn")
+	#preload("res://scenes/levels/theball.tscn"),
+	preload("res://scenes/levels/the_button.tscn"),
 ]
 var level_to_pick = []
 
