@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwksqbyxtxf10"]
+[gd_scene load_steps=4 format=3 uid="uid://dwksqbyxtxf10"]
 
-[ext_resource type="Material" uid="uid://jkubgtbm47jo" path="res://art/Textures/Levelcolors/water.tres" id="1_4hu67"]
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="1_xyylf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ukkq"]
+render_priority = 0
+shader = ExtResource("1_xyylf")
+shader_parameter/WATER_COL = Color(0.164706, 0.564706, 0.698039, 1)
+shader_parameter/WATER2_COL = Color(0, 0.52549, 0.560784, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(200, 200)
+shader_parameter/height = 2.0
+shader_parameter/wave_size = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o0vqe"]
-material = ExtResource("1_4hu67")
+material = SubResource("ShaderMaterial_0ukkq")
 size = Vector2(1024, 1024)
 subdivide_width = 512
 subdivide_depth = 512
