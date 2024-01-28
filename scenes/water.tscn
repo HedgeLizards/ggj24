@@ -22,4 +22,5 @@ subdivide_depth = 512
 
 [node name="Water" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+cast_shadow = 0
 mesh = SubResource("PlaneMesh_o0vqe")

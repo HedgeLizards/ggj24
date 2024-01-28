@@ -1,7 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://da0xobyjc316q"]
+[gd_scene load_steps=8 format=3 uid="uid://da0xobyjc316q"]
 
 [ext_resource type="Script" path="res://code/splash.gd" id="1_ancs0"]
-[ext_resource type="Material" uid="uid://jkubgtbm47jo" path="res://art/Textures/Levelcolors/water.tres" id="1_hjjqq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vpt3"]
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+disable_receive_shadows = true
+use_particle_trails = true
 
 [sub_resource type="Curve" id="Curve_tk310"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.488), 0.0, 0.0, 0, 0]
@@ -15,32 +21,39 @@ particle_flag_align_y = true
 emission_shape = 6
 emission_ring_axis = Vector3(2.08165e-12, 1, 2.08165e-12)
 emission_ring_height = 0.1
-emission_ring_radius = 4.1
-emission_ring_inner_radius = 4.0
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 3.0
 angle_max = 208.2
 velocity_pivot = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
 direction = Vector3(2.08165e-12, 10, 2.08165e-12)
 spread = 62.35
-initial_velocity_min = 7.0
-initial_velocity_max = 8.0
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
 radial_velocity_min = 4.0
 radial_velocity_max = 5.0
-radial_accel_min = 2.0
-radial_accel_max = 2.0
+radial_accel_min = 0.5
+radial_accel_max = 1.0
 tangential_accel_max = 2.08167e-15
 damping_max = 10.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_3rxrl")
 
+[sub_resource type="Curve" id="Curve_dhijs"]
+_data = [Vector2(0, 0.0423096), 0.0, 2.72702, 0, 0, Vector2(0.19883, 0.734694), 0.471899, 0.471899, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [sub_resource type="TubeTrailMesh" id="TubeTrailMesh_m3tyu"]
+radius = 0.6
+curve = SubResource("Curve_dhijs")
 
 [node name="Splash" type="Node3D"]
 script = ExtResource("1_ancs0")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-material_override = ExtResource("1_hjjqq")
+material_override = SubResource("StandardMaterial3D_0vpt3")
+cast_shadow = 0
 emitting = false
-amount = 50
+amount = 20
 lifetime = 2.0
 one_shot = true
 speed_scale = 3.0

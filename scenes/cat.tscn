@@ -78,6 +78,7 @@ shape = SubResource("BoxShape3D_pgwul")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+cast_shadow = 0
 amount = 30
 lifetime = 0.8
 randomness = 0.5
