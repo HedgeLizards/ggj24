@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://pn0xsk043g38"]
+
+[ext_resource type="Material" uid="uid://csf5w5n6wn7f" path="res://art/Textures/Levelcolors/wall.tres" id="1_gbror"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ntsr"]
+lightmap_size_hint = Vector2i(164, 166)
+size = Vector3(16, 1, 16)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ponxj"]
+data = PackedVector3Array(-8, 0.5, 8, 8, 0.5, 8, -8, -0.5, 8, 8, 0.5, 8, 8, -0.5, 8, -8, -0.5, 8, 8, 0.5, -8, -8, 0.5, -8, 8, -0.5, -8, -8, 0.5, -8, -8, -0.5, -8, 8, -0.5, -8, 8, 0.5, 8, 8, 0.5, -8, 8, -0.5, 8, 8, 0.5, -8, 8, -0.5, -8, 8, -0.5, 8, -8, 0.5, -8, -8, 0.5, 8, -8, -0.5, -8, -8, 0.5, 8, -8, -0.5, 8, -8, -0.5, -8, 8, 0.5, 8, -8, 0.5, 8, 8, 0.5, -8, -8, 0.5, 8, -8, 0.5, -8, 8, 0.5, -8, -8, -0.5, 8, 8, -0.5, 8, -8, -0.5, -8, 8, -0.5, 8, 8, -0.5, -8, -8, -0.5, -8)
+
+[node name="platform" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+material_override = ExtResource("1_gbror")
+mesh = SubResource("BoxMesh_4ntsr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+shape = SubResource("ConcavePolygonShape3D_ponxj")

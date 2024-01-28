@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5kyjxw77i1r0"]
+
+[ext_resource type="PackedScene" uid="uid://dwksqbyxtxf10" path="res://scenes/water.tscn" id="1_83bgo"]
+[ext_resource type="PackedScene" uid="uid://bulwrisqfjkqe" path="res://scenes/ground.tscn" id="2_kgitd"]
+[ext_resource type="PackedScene" uid="uid://pn0xsk043g38" path="res://scenes/platform.tscn" id="3_nj5ca"]
+[ext_resource type="Script" path="res://code/platform.gd" id="4_xx4g8"]
+
+[node name="Level" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 4, -16)
+script = ExtResource("4_xx4g8")
+
+[node name="Spawns" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="Node3D" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 5, -14)
+
+[node name="Node3D2" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, 0)
+
+[node name="Node3D3" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 5, 31)
+
+[node name="Node3D4" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 5, 46)
+
+[node name="Water" parent="." instance=ExtResource("1_83bgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -4, 2.08165e-12)
+
+[node name="Ground" parent="." instance=ExtResource("2_kgitd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 8, -2.08165e-12)
+
+[node name="Ground3" parent="." instance=ExtResource("2_kgitd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 8, -16)
+
+[node name="Ground4" parent="." instance=ExtResource("2_kgitd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 8, 32)
+
+[node name="Ground2" parent="." instance=ExtResource("2_kgitd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 8, 48)
+
+[node name="platformsdown" type="Node3D" parent="."]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 16, 11, 16)
+
+[node name="platform3" parent="platformsdown" instance=ExtResource("3_nj5ca")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -16)
+
+[node name="platform4" parent="platformsdown" instance=ExtResource("3_nj5ca")]
+transform = Transform3D(-4.37114e-08, -1.21652e-31, -1, 0, 1, 1.12238e-23, 1, 0, -4.37114e-08, 32, 0, -16)
+
+[node name="platform5" parent="platformsdown" instance=ExtResource("3_nj5ca")]
+transform = Transform3D(-4.37114e-08, -1.21652e-31, -1, 0, 1, 1.12238e-23, 1, 0, -4.37114e-08, 0, 0, 16)
+
+[node name="platform6" parent="platformsdown" instance=ExtResource("3_nj5ca")]
+transform = Transform3D(-4.37114e-08, -1.21652e-31, -1, 0, 1, 1.12238e-23, 1, 0, -4.37114e-08, 32, 0, 16)
+
+[node name="platform2" parent="platformsdown" instance=ExtResource("3_nj5ca")]
+transform = Transform3D(-4.37114e-08, -1.21652e-31, -1, 0, 1, 1.12238e-23, 1, 0, -4.37114e-08, 16, 0, 0)
+
+[node name="platformsup" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 11, 16)
+
+[node name="platform" parent="platformsup" instance=ExtResource("3_nj5ca")]
+
+[node name="platform2" parent="platformsup" instance=ExtResource("3_nj5ca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
+
+[node name="platform4" parent="platformsup" instance=ExtResource("3_nj5ca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 16)
+
+[node name="platform3" parent="platformsup" instance=ExtResource("3_nj5ca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-06, 0, 32)
