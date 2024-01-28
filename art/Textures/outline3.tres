@@ -7,5 +7,5 @@ render_priority = -1
 next_pass = ExtResource("1_inytm")
 no_depth_test = true
 shading_mode = 0
-albedo_color = Color(0, 0.588235, 0.721569, 1)
+albedo_color = Color(0.658824, 0.658824, 0.658824, 1)
 disable_receive_shadows = true

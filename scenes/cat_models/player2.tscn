@@ -44,5 +44,5 @@ texture_albedo = ExtResource("5_2mjsh")
 upper_fade = 1e-05
 lower_fade = 1e-05
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cat_bdy" index="2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cat_bdy" index="2"]
 mesh = SubResource("ArrayMesh_srhir")
