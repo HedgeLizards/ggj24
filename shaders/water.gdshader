@@ -5,11 +5,11 @@
 
 shader_type spatial;
 
-uniform vec4 WATER_COL : source_color =  vec4(0.04, 0.38, 0.88, 1.0);
-uniform vec4 WATER2_COL : source_color =  vec4(0.04, 0.35, 0.78, 1.0);
+uniform vec4 WATER_COL : source_color =  vec4(0.16, 0.56, 0.69, 1.0);
+uniform vec4 WATER2_COL : source_color =  vec4(0.00, 0.52, 0.56, 1.0);
 uniform vec4 FOAM_COL : source_color = vec4(0.8125, 0.9609, 0.9648, 1.0);
 uniform float distortion_speed = 2.0;
-uniform vec2 tile = vec2(5.0, 5.0);
+uniform vec2 tile = vec2(200.0, 200.0);
 uniform float height = 2.0;
 uniform vec2 wave_size = vec2(2.0, 2.0);
 uniform float wave_speed = 1.5;
