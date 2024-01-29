@@ -31,3 +31,8 @@ func accelleration():
 
 func max_speed():
 	return speed_max
+
+func start_zoomies(duration):
+	if zoomies < 0:
+		zoomies = 0
+	zoomies += duration
