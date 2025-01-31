@@ -24,8 +24,8 @@ subdivide_height = 2
 [node name="CatnipBox" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_mfg03")
 gravity_scale = 5.0
-max_contacts_reported = 4
 contact_monitor = true
+max_contacts_reported = 4
 script = ExtResource("1_q55yx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -36,19 +36,14 @@ rings = 5
 random_pitch = 1.15
 streams_count = 1
 stream_0/stream = ExtResource("5_01cao")
-stream_0/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lhljf"]
 random_pitch = 1.15
 streams_count = 4
 stream_0/stream = ExtResource("5_dp1n1")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("6_alc0n")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("7_nh2gt")
-stream_2/weight = 1.0
 stream_3/stream = ExtResource("8_f81fe")
-stream_3/weight = 1.0
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_fftc2")
@@ -60,8 +55,8 @@ collision_mask = 3
 mass = 4.0
 physics_material_override = SubResource("PhysicsMaterial_e8e0b")
 gravity_scale = 12.0
-max_contacts_reported = 3
 contact_monitor = true
+max_contacts_reported = 3
 linear_damp = 0.2
 script = ExtResource("1_4x5th")
 

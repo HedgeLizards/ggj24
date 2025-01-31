@@ -58,7 +58,6 @@ size = Vector3(256, 256, 256)
 random_pitch = 1.25
 streams_count = 1
 stream_0/stream = ExtResource("10_np52n")
-stream_0/weight = 1.0
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_i2n6y")
@@ -69,7 +68,6 @@ script = ExtResource("1_i2n6y")
 unique_name_in_owner = true
 
 [node name="CameraBase" type="Node3D" parent="."]
-unique_name_in_owner = true
 script = ExtResource("3_g1m57")
 
 [node name="Camera3D" type="Camera3D" parent="CameraBase"]
